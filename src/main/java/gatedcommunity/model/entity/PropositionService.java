@@ -32,6 +32,10 @@ public class PropositionService {
     private boolean active; // null / false
 
 
+    public PropositionService() {
+
+    }
+
 
     @Override
     public String toString() {
