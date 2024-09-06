@@ -2,9 +2,9 @@ spring:
   application:
     name: GatedCommunity
   datasource:
-    url: jdbc:postgresql://${DB_HOST}/gatedcommunity
-    username: ${DB_USER}
-    password: ${DB_PASSWORD}
+    url: jdbc:postgresql://localhost:5436/gatedcommunity
+    username: postgres
+    password: pos1234
     driver-class-name: org.postgresql.Driver
 
   liquibase:

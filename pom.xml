@@ -8,10 +8,10 @@
         <version>3.3.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>ait.group44</groupId>
+    <groupId>gatedcommunity</groupId>
     <artifactId>GatedCommunity</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>GatedCommunity</name>
+    <name>gatedcommunity</name>
     <description>GatedCommunity</description>
     <url/>
     <licenses>
