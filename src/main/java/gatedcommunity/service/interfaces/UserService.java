@@ -1,4 +1,9 @@
 package gatedcommunity.service.interfaces;
 
-public interface UserService {
+import gatedcommunity.model.dto.UserRegisterDto;
+
+public interface UserService  {
+
+    void register(UserRegisterDto registerDto);
+    String confirmationMailByCode(String code);
 }
