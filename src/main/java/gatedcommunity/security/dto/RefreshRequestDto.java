@@ -1,4 +1,5 @@
 package gatedcommunity.security.dto;
 
-public class RefreshRequestDto {
+public record RefreshRequestDto (String refreshToken) {
+
 }
