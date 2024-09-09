@@ -23,12 +23,13 @@ public class AuthService {
     // username : token
     private final Map<String, String> refreshStorage;
 
-    public AuthService(UserDetailsService userService, TokenService tokenService, BCryptPasswordEncoder passwordEncoder) {
+    public AuthService(UserDetailsService userService, TokenService tokenService, BCryptPasswordEncoder passwordEncoder, Map<String, String> refreshStorage) {
         this.userService = userService;
         this.tokenService = tokenService;
         this.passwordEncoder = passwordEncoder;
-        this.refreshStorage = new HashMap<>();
+        this.refreshStorage = refreshStorage;
     }
+
 
     public TokenResponseDto login(LoginRequestDto loginRequestDto) throws AuthException {
         UserDetails foundUser = userService.loadUserByUsername(loginRequestDto.username());
@@ -45,14 +46,6 @@ public class AuthService {
         throw new AuthException("Incorrect login and / or password");
     }
 
-
-    /*
-    1. Принять данные пользователя
-    2. Проверка логина и пароля
-    3. Генерация токенов
-    4. Сохранить refresh-токен в хранилище
-    5. Сформировать ответ
-     */
 
     public TokenResponseDto refreshAccessToken(RefreshRequestDto refreshRequestDto) throws AuthException {
         String token = refreshRequestDto.refreshToken();

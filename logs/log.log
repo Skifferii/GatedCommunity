@@ -52,3 +52,57 @@ Action:
 
 Consider defining a bean of type 'org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder' in your configuration.
 
+2024-09-09T17:37:18.431+02:00  INFO 20276 --- [GatedCommunity] [main] g.GatedCommunityApplication              : Starting GatedCommunityApplication using Java 17.0.12 with PID 20276 (C:\Git\ProjektCohort44FS\GatedCommunity\target\classes started by Andreas in C:\Git\ProjektCohort44FS\GatedCommunity)
+2024-09-09T17:37:18.442+02:00  INFO 20276 --- [GatedCommunity] [main] g.GatedCommunityApplication              : No active profile set, falling back to 1 default profile: "default"
+2024-09-09T17:37:20.853+02:00  INFO 20276 --- [GatedCommunity] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-09T17:37:21.026+02:00  INFO 20276 --- [GatedCommunity] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 151 ms. Found 2 JPA repository interfaces.
+2024-09-09T17:37:22.344+02:00  INFO 20276 --- [GatedCommunity] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-09T17:37:22.367+02:00  INFO 20276 --- [GatedCommunity] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-09T17:37:22.368+02:00  INFO 20276 --- [GatedCommunity] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-09T17:37:22.503+02:00  INFO 20276 --- [GatedCommunity] [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2024-09-09T17:37:22.503+02:00  INFO 20276 --- [GatedCommunity] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3888 ms
+2024-09-09T17:37:22.776+02:00  INFO 20276 --- [GatedCommunity] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-09T17:37:23.059+02:00  INFO 20276 --- [GatedCommunity] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1edfedf1
+2024-09-09T17:37:23.063+02:00  INFO 20276 --- [GatedCommunity] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-09T17:37:23.410+02:00  INFO 20276 --- [GatedCommunity] [main] liquibase.database                       : Set default schema name to public
+2024-09-09T17:37:24.396+02:00  INFO 20276 --- [GatedCommunity] [main] liquibase.changelog                      : Reading from public.databasechangelog
+2024-09-09T17:37:24.480+02:00  INFO 20276 --- [GatedCommunity] [main] liquibase.ui                             : Database is up to date, no changesets to execute
+2024-09-09T17:37:24.486+02:00  INFO 20276 --- [GatedCommunity] [main] liquibase.changelog                      : Reading from public.databasechangelog
+2024-09-09T17:37:24.509+02:00  INFO 20276 --- [GatedCommunity] [main] liquibase.util                           : UPDATE SUMMARY
+2024-09-09T17:37:24.511+02:00  INFO 20276 --- [GatedCommunity] [main] liquibase.util                           : Run:                          0
+2024-09-09T17:37:24.511+02:00  INFO 20276 --- [GatedCommunity] [main] liquibase.util                           : Previously run:               2
+2024-09-09T17:37:24.512+02:00  INFO 20276 --- [GatedCommunity] [main] liquibase.util                           : Filtered out:                 0
+2024-09-09T17:37:24.512+02:00  INFO 20276 --- [GatedCommunity] [main] liquibase.util                           : -------------------------------
+2024-09-09T17:37:24.512+02:00  INFO 20276 --- [GatedCommunity] [main] liquibase.util                           : Total change sets:            2
+2024-09-09T17:37:24.514+02:00  INFO 20276 --- [GatedCommunity] [main] liquibase.util                           : Update summary generated
+2024-09-09T17:37:24.557+02:00  INFO 20276 --- [GatedCommunity] [main] liquibase.lockservice                    : Successfully released change log lock
+2024-09-09T17:37:24.561+02:00  INFO 20276 --- [GatedCommunity] [main] liquibase.command                        : Command execution complete
+2024-09-09T17:37:24.753+02:00  INFO 20276 --- [GatedCommunity] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-09T17:37:24.859+02:00  INFO 20276 --- [GatedCommunity] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-09T17:37:24.924+02:00  INFO 20276 --- [GatedCommunity] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-09-09T17:37:25.491+02:00  INFO 20276 --- [GatedCommunity] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-09T17:37:27.545+02:00  INFO 20276 --- [GatedCommunity] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-09T17:37:27.551+02:00  INFO 20276 --- [GatedCommunity] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-09T17:37:28.406+02:00  WARN 20276 --- [GatedCommunity] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'authController' defined in file [C:\Git\ProjektCohort44FS\GatedCommunity\target\classes\gatedcommunity\security\controller\AuthController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'authService' defined in file [C:\Git\ProjektCohort44FS\GatedCommunity\target\classes\gatedcommunity\security\service\AuthService.class]: Unsatisfied dependency expressed through constructor parameter 2: No qualifying bean of type 'org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2024-09-09T17:37:28.412+02:00  INFO 20276 --- [GatedCommunity] [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-09T17:37:28.417+02:00  INFO 20276 --- [GatedCommunity] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-09-09T17:37:28.430+02:00  INFO 20276 --- [GatedCommunity] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-09-09T17:37:28.439+02:00  INFO 20276 --- [GatedCommunity] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-09-09T17:37:28.476+02:00  INFO 20276 --- [GatedCommunity] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-09-09T17:37:28.526+02:00 ERROR 20276 --- [GatedCommunity] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 2 of constructor in gatedcommunity.security.service.AuthService required a bean of type 'org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder' in your configuration.
+
