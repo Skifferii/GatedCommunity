@@ -6,27 +6,28 @@ import jakarta.persistence.*;
 import java.util.Objects;
 
 
-@Schema(description = "Class that describes proposition_serviceDTO")
+@Schema(description = "Class that describes proposition_service_DTO")
 
 public class PropositionServiceDTO {
-//    @Schema(description = "proposition_service unique identifier", example = "777", accessMode = Schema.AccessMode.READ_ONLY)
+
+//  todo  @Schema(description = "proposition_service unique identifier", example = "777", accessMode = Schema.AccessMode.READ_ONLY)
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
 //    @Column(name = "id")
     private Long id; //// null / 0
 
-//    @Schema(description = "proposition_service title", example = "Change lamp")
+//  todo  @Schema(description = "proposition_service title", example = "Change lamp")
 //    @Column(name = "title")
     private String title;
-//
-//    @Schema(description = "proposition_service description", example = "change old lamp nach new")
+
+//  todo  @Schema(description = "proposition_service description", example = "change old lamp nach new")
 //    @Column(name = "description")
     private String description;
 
-//    @Column(name = "image")
+//  todo  @Column(name = "image")
     private String image;
 
-//    @Schema(description = "Is proposition_service available", accessMode = Schema.AccessMode.READ_ONLY)
+//  todo  @Schema(description = "Is proposition_service available", accessMode = Schema.AccessMode.READ_ONLY)
 //    @Column
     private boolean active; // null / false
 
@@ -38,7 +39,7 @@ public class PropositionServiceDTO {
 
     @Override
     public String toString() {
-        return String.format("Product: id - %d, title - %s, description - %s, active - %s",
+        return String.format("PropositionServiceDTO: id - %d, title - %s, description - %s, active - %s",
                 id, title, description, active ? "yes" : "no" );
     }
 
