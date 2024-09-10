@@ -1,216 +1,180 @@
-2024-09-09T17:33:42.196+02:00  INFO 9980 --- [GatedCommunity] [main] g.GatedCommunityApplication              : Starting GatedCommunityApplication using Java 17.0.12 with PID 9980 (C:\Git\ProjektCohort44FS\GatedCommunity\target\classes started by Andreas in C:\Git\ProjektCohort44FS\GatedCommunity)
-2024-09-09T17:33:42.205+02:00  INFO 9980 --- [GatedCommunity] [main] g.GatedCommunityApplication              : No active profile set, falling back to 1 default profile: "default"
-2024-09-09T17:33:44.962+02:00  INFO 9980 --- [GatedCommunity] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-09-09T17:33:45.114+02:00  INFO 9980 --- [GatedCommunity] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 132 ms. Found 2 JPA repository interfaces.
-2024-09-09T17:33:48.366+02:00  INFO 9980 --- [GatedCommunity] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-09-09T17:33:48.396+02:00  INFO 9980 --- [GatedCommunity] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-09-09T17:33:48.396+02:00  INFO 9980 --- [GatedCommunity] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
-2024-09-09T17:33:48.564+02:00  INFO 9980 --- [GatedCommunity] [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-2024-09-09T17:33:48.565+02:00  INFO 9980 --- [GatedCommunity] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6225 ms
-2024-09-09T17:33:48.948+02:00  INFO 9980 --- [GatedCommunity] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-09-09T17:33:49.372+02:00  INFO 9980 --- [GatedCommunity] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5e1a986c
-2024-09-09T17:33:49.375+02:00  INFO 9980 --- [GatedCommunity] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-09-09T17:33:49.821+02:00  INFO 9980 --- [GatedCommunity] [main] liquibase.database                       : Set default schema name to public
-2024-09-09T17:33:52.390+02:00  INFO 9980 --- [GatedCommunity] [main] liquibase.changelog                      : Reading from public.databasechangelog
-2024-09-09T17:33:52.693+02:00  INFO 9980 --- [GatedCommunity] [main] liquibase.ui                             : Database is up to date, no changesets to execute
-2024-09-09T17:33:52.701+02:00  INFO 9980 --- [GatedCommunity] [main] liquibase.changelog                      : Reading from public.databasechangelog
-2024-09-09T17:33:52.725+02:00  INFO 9980 --- [GatedCommunity] [main] liquibase.util                           : UPDATE SUMMARY
-2024-09-09T17:33:52.725+02:00  INFO 9980 --- [GatedCommunity] [main] liquibase.util                           : Run:                          0
-2024-09-09T17:33:52.725+02:00  INFO 9980 --- [GatedCommunity] [main] liquibase.util                           : Previously run:               2
-2024-09-09T17:33:52.726+02:00  INFO 9980 --- [GatedCommunity] [main] liquibase.util                           : Filtered out:                 0
-2024-09-09T17:33:52.727+02:00  INFO 9980 --- [GatedCommunity] [main] liquibase.util                           : -------------------------------
-2024-09-09T17:33:52.728+02:00  INFO 9980 --- [GatedCommunity] [main] liquibase.util                           : Total change sets:            2
-2024-09-09T17:33:52.731+02:00  INFO 9980 --- [GatedCommunity] [main] liquibase.util                           : Update summary generated
-2024-09-09T17:33:52.813+02:00  INFO 9980 --- [GatedCommunity] [main] liquibase.lockservice                    : Successfully released change log lock
-2024-09-09T17:33:52.822+02:00  INFO 9980 --- [GatedCommunity] [main] liquibase.command                        : Command execution complete
-2024-09-09T17:33:53.031+02:00  INFO 9980 --- [GatedCommunity] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-09-09T17:33:53.203+02:00  INFO 9980 --- [GatedCommunity] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
-2024-09-09T17:33:53.304+02:00  INFO 9980 --- [GatedCommunity] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-09-09T17:33:53.945+02:00  INFO 9980 --- [GatedCommunity] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-09-09T17:33:57.179+02:00  INFO 9980 --- [GatedCommunity] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-09-09T17:33:57.184+02:00  INFO 9980 --- [GatedCommunity] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-09-09T17:33:57.735+02:00  WARN 9980 --- [GatedCommunity] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'authController' defined in file [C:\Git\ProjektCohort44FS\GatedCommunity\target\classes\gatedcommunity\security\controller\AuthController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'authService' defined in file [C:\Git\ProjektCohort44FS\GatedCommunity\target\classes\gatedcommunity\security\service\AuthService.class]: Unsatisfied dependency expressed through constructor parameter 2: No qualifying bean of type 'org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
-2024-09-09T17:33:57.737+02:00  INFO 9980 --- [GatedCommunity] [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-09-09T17:33:57.739+02:00  INFO 9980 --- [GatedCommunity] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-09-09T17:33:57.750+02:00  INFO 9980 --- [GatedCommunity] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-09-09T17:33:57.754+02:00  INFO 9980 --- [GatedCommunity] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2024-09-09T17:33:57.779+02:00  INFO 9980 --- [GatedCommunity] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+2024-09-10T17:29:57.930+02:00  INFO 7944 --- [GatedCommunity] [main] g.GatedCommunityApplication              : Starting GatedCommunityApplication using Java 17.0.12 with PID 7944 (C:\Users\weste\IdeaProjects\GatedCommunity\ProjectGatedCommunity\target\classes started by weste in C:\Users\weste\IdeaProjects\GatedCommunity\ProjectGatedCommunity)
+2024-09-10T17:29:57.969+02:00  INFO 7944 --- [GatedCommunity] [main] g.GatedCommunityApplication              : No active profile set, falling back to 1 default profile: "default"
+2024-09-10T17:30:01.225+02:00  INFO 7944 --- [GatedCommunity] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-10T17:30:01.424+02:00  INFO 7944 --- [GatedCommunity] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 174 ms. Found 2 JPA repository interfaces.
+2024-09-10T17:30:03.160+02:00  INFO 7944 --- [GatedCommunity] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-10T17:30:03.199+02:00  INFO 7944 --- [GatedCommunity] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-10T17:30:03.200+02:00  INFO 7944 --- [GatedCommunity] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-10T17:30:03.412+02:00  INFO 7944 --- [GatedCommunity] [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2024-09-10T17:30:03.414+02:00  INFO 7944 --- [GatedCommunity] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5322 ms
+2024-09-10T17:30:03.733+02:00  INFO 7944 --- [GatedCommunity] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-10T17:30:04.867+02:00 ERROR 7944 --- [GatedCommunity] [main] o.s.b.web.embedded.tomcat.TomcatStarter  : Error starting Tomcat context. Exception: org.springframework.beans.factory.UnsatisfiedDependencyException. Message: Error creating bean with name 'tokenFilter' defined in file [C:\Users\weste\IdeaProjects\GatedCommunity\ProjectGatedCommunity\target\classes\gatedcommunity\security\filter\TokenFilter.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'tokenService' defined in file [C:\Users\weste\IdeaProjects\GatedCommunity\ProjectGatedCommunity\target\classes\gatedcommunity\security\service\TokenService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'roleRepository' defined in gatedcommunity.repository.RoleRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot resolve reference to bean 'jpaSharedEM_entityManagerFactory' while setting bean property 'entityManager'
+2024-09-10T17:30:04.933+02:00  INFO 7944 --- [GatedCommunity] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-09-10T17:30:04.944+02:00  WARN 7944 --- [GatedCommunity] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
+2024-09-10T17:30:04.970+02:00  INFO 7944 --- [GatedCommunity] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
 
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-09-09T17:33:57.831+02:00 ERROR 9980 --- [GatedCommunity] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+2024-09-10T17:30:05.007+02:00 ERROR 7944 --- [GatedCommunity] [main] o.s.boot.SpringApplication               : Application run failed
 
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Parameter 2 of constructor in gatedcommunity.security.service.AuthService required a bean of type 'org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder' that could not be found.
-
-
-Action:
-
-Consider defining a bean of type 'org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder' in your configuration.
-
-2024-09-09T17:37:18.431+02:00  INFO 20276 --- [GatedCommunity] [main] g.GatedCommunityApplication              : Starting GatedCommunityApplication using Java 17.0.12 with PID 20276 (C:\Git\ProjektCohort44FS\GatedCommunity\target\classes started by Andreas in C:\Git\ProjektCohort44FS\GatedCommunity)
-2024-09-09T17:37:18.442+02:00  INFO 20276 --- [GatedCommunity] [main] g.GatedCommunityApplication              : No active profile set, falling back to 1 default profile: "default"
-2024-09-09T17:37:20.853+02:00  INFO 20276 --- [GatedCommunity] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-09-09T17:37:21.026+02:00  INFO 20276 --- [GatedCommunity] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 151 ms. Found 2 JPA repository interfaces.
-2024-09-09T17:37:22.344+02:00  INFO 20276 --- [GatedCommunity] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-09-09T17:37:22.367+02:00  INFO 20276 --- [GatedCommunity] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-09-09T17:37:22.368+02:00  INFO 20276 --- [GatedCommunity] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
-2024-09-09T17:37:22.503+02:00  INFO 20276 --- [GatedCommunity] [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-2024-09-09T17:37:22.503+02:00  INFO 20276 --- [GatedCommunity] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3888 ms
-2024-09-09T17:37:22.776+02:00  INFO 20276 --- [GatedCommunity] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-09-09T17:37:23.059+02:00  INFO 20276 --- [GatedCommunity] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1edfedf1
-2024-09-09T17:37:23.063+02:00  INFO 20276 --- [GatedCommunity] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-09-09T17:37:23.410+02:00  INFO 20276 --- [GatedCommunity] [main] liquibase.database                       : Set default schema name to public
-2024-09-09T17:37:24.396+02:00  INFO 20276 --- [GatedCommunity] [main] liquibase.changelog                      : Reading from public.databasechangelog
-2024-09-09T17:37:24.480+02:00  INFO 20276 --- [GatedCommunity] [main] liquibase.ui                             : Database is up to date, no changesets to execute
-2024-09-09T17:37:24.486+02:00  INFO 20276 --- [GatedCommunity] [main] liquibase.changelog                      : Reading from public.databasechangelog
-2024-09-09T17:37:24.509+02:00  INFO 20276 --- [GatedCommunity] [main] liquibase.util                           : UPDATE SUMMARY
-2024-09-09T17:37:24.511+02:00  INFO 20276 --- [GatedCommunity] [main] liquibase.util                           : Run:                          0
-2024-09-09T17:37:24.511+02:00  INFO 20276 --- [GatedCommunity] [main] liquibase.util                           : Previously run:               2
-2024-09-09T17:37:24.512+02:00  INFO 20276 --- [GatedCommunity] [main] liquibase.util                           : Filtered out:                 0
-2024-09-09T17:37:24.512+02:00  INFO 20276 --- [GatedCommunity] [main] liquibase.util                           : -------------------------------
-2024-09-09T17:37:24.512+02:00  INFO 20276 --- [GatedCommunity] [main] liquibase.util                           : Total change sets:            2
-2024-09-09T17:37:24.514+02:00  INFO 20276 --- [GatedCommunity] [main] liquibase.util                           : Update summary generated
-2024-09-09T17:37:24.557+02:00  INFO 20276 --- [GatedCommunity] [main] liquibase.lockservice                    : Successfully released change log lock
-2024-09-09T17:37:24.561+02:00  INFO 20276 --- [GatedCommunity] [main] liquibase.command                        : Command execution complete
-2024-09-09T17:37:24.753+02:00  INFO 20276 --- [GatedCommunity] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-09-09T17:37:24.859+02:00  INFO 20276 --- [GatedCommunity] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
-2024-09-09T17:37:24.924+02:00  INFO 20276 --- [GatedCommunity] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-09-09T17:37:25.491+02:00  INFO 20276 --- [GatedCommunity] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-09-09T17:37:27.545+02:00  INFO 20276 --- [GatedCommunity] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-09-09T17:37:27.551+02:00  INFO 20276 --- [GatedCommunity] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-09-09T17:37:28.406+02:00  WARN 20276 --- [GatedCommunity] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'authController' defined in file [C:\Git\ProjektCohort44FS\GatedCommunity\target\classes\gatedcommunity\security\controller\AuthController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'authService' defined in file [C:\Git\ProjektCohort44FS\GatedCommunity\target\classes\gatedcommunity\security\service\AuthService.class]: Unsatisfied dependency expressed through constructor parameter 2: No qualifying bean of type 'org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
-2024-09-09T17:37:28.412+02:00  INFO 20276 --- [GatedCommunity] [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-09-09T17:37:28.417+02:00  INFO 20276 --- [GatedCommunity] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-09-09T17:37:28.430+02:00  INFO 20276 --- [GatedCommunity] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-09-09T17:37:28.439+02:00  INFO 20276 --- [GatedCommunity] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2024-09-09T17:37:28.476+02:00  INFO 20276 --- [GatedCommunity] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-09-09T17:37:28.526+02:00 ERROR 20276 --- [GatedCommunity] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Parameter 2 of constructor in gatedcommunity.security.service.AuthService required a bean of type 'org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder' that could not be found.
-
-
-Action:
-
-Consider defining a bean of type 'org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder' in your configuration.
-
-2024-09-09T17:43:15.055+02:00  INFO 10676 --- [GatedCommunity] [main] g.GatedCommunityApplication              : Starting GatedCommunityApplication using Java 17.0.12 with PID 10676 (C:\Git\ProjektCohort44FS\GatedCommunity\target\classes started by Andreas in C:\Git\ProjektCohort44FS\GatedCommunity)
-2024-09-09T17:43:15.060+02:00  INFO 10676 --- [GatedCommunity] [main] g.GatedCommunityApplication              : No active profile set, falling back to 1 default profile: "default"
-2024-09-09T17:43:17.172+02:00  INFO 10676 --- [GatedCommunity] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-09-09T17:43:17.354+02:00  INFO 10676 --- [GatedCommunity] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 164 ms. Found 2 JPA repository interfaces.
-2024-09-09T17:43:18.998+02:00  INFO 10676 --- [GatedCommunity] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-09-09T17:43:19.034+02:00  INFO 10676 --- [GatedCommunity] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-09-09T17:43:19.035+02:00  INFO 10676 --- [GatedCommunity] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
-2024-09-09T17:43:19.222+02:00  INFO 10676 --- [GatedCommunity] [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-2024-09-09T17:43:19.223+02:00  INFO 10676 --- [GatedCommunity] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4037 ms
-2024-09-09T17:43:19.574+02:00  INFO 10676 --- [GatedCommunity] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-09-09T17:43:19.908+02:00  INFO 10676 --- [GatedCommunity] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7f22687e
-2024-09-09T17:43:19.911+02:00  INFO 10676 --- [GatedCommunity] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-09-09T17:43:20.301+02:00  INFO 10676 --- [GatedCommunity] [main] liquibase.database                       : Set default schema name to public
-2024-09-09T17:43:21.433+02:00  INFO 10676 --- [GatedCommunity] [main] liquibase.changelog                      : Reading from public.databasechangelog
-2024-09-09T17:43:21.528+02:00  INFO 10676 --- [GatedCommunity] [main] liquibase.ui                             : Database is up to date, no changesets to execute
-2024-09-09T17:43:21.533+02:00  INFO 10676 --- [GatedCommunity] [main] liquibase.changelog                      : Reading from public.databasechangelog
-2024-09-09T17:43:21.556+02:00  INFO 10676 --- [GatedCommunity] [main] liquibase.util                           : UPDATE SUMMARY
-2024-09-09T17:43:21.556+02:00  INFO 10676 --- [GatedCommunity] [main] liquibase.util                           : Run:                          0
-2024-09-09T17:43:21.557+02:00  INFO 10676 --- [GatedCommunity] [main] liquibase.util                           : Previously run:               2
-2024-09-09T17:43:21.557+02:00  INFO 10676 --- [GatedCommunity] [main] liquibase.util                           : Filtered out:                 0
-2024-09-09T17:43:21.557+02:00  INFO 10676 --- [GatedCommunity] [main] liquibase.util                           : -------------------------------
-2024-09-09T17:43:21.558+02:00  INFO 10676 --- [GatedCommunity] [main] liquibase.util                           : Total change sets:            2
-2024-09-09T17:43:21.560+02:00  INFO 10676 --- [GatedCommunity] [main] liquibase.util                           : Update summary generated
-2024-09-09T17:43:21.633+02:00  INFO 10676 --- [GatedCommunity] [main] liquibase.lockservice                    : Successfully released change log lock
-2024-09-09T17:43:21.642+02:00  INFO 10676 --- [GatedCommunity] [main] liquibase.command                        : Command execution complete
-2024-09-09T17:43:21.902+02:00  INFO 10676 --- [GatedCommunity] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-09-09T17:43:22.058+02:00  INFO 10676 --- [GatedCommunity] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
-2024-09-09T17:43:22.155+02:00  INFO 10676 --- [GatedCommunity] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-09-09T17:43:22.744+02:00  INFO 10676 --- [GatedCommunity] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-09-09T17:43:26.944+02:00  INFO 10676 --- [GatedCommunity] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-09-09T17:43:26.953+02:00  INFO 10676 --- [GatedCommunity] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-09-09T17:43:28.787+02:00  WARN 10676 --- [GatedCommunity] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'authController' defined in file [C:\Git\ProjektCohort44FS\GatedCommunity\target\classes\gatedcommunity\security\controller\AuthController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'authService' defined in file [C:\Git\ProjektCohort44FS\GatedCommunity\target\classes\gatedcommunity\security\service\AuthService.class]: Unsatisfied dependency expressed through constructor parameter 2: No qualifying bean of type 'org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
-2024-09-09T17:43:28.788+02:00  INFO 10676 --- [GatedCommunity] [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-09-09T17:43:28.792+02:00  INFO 10676 --- [GatedCommunity] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-09-09T17:43:28.826+02:00  INFO 10676 --- [GatedCommunity] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-09-09T17:43:28.831+02:00  INFO 10676 --- [GatedCommunity] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2024-09-09T17:43:28.886+02:00  INFO 10676 --- [GatedCommunity] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-09-09T17:43:28.989+02:00 ERROR 10676 --- [GatedCommunity] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Parameter 2 of constructor in gatedcommunity.security.service.AuthService required a bean of type 'org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder' that could not be found.
-
-
-Action:
-
-Consider defining a bean of type 'org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder' in your configuration.
-
-2024-09-09T17:59:34.560+02:00  INFO 3068 --- [GatedCommunity] [main] g.GatedCommunityApplication              : Starting GatedCommunityApplication using Java 17.0.12 with PID 3068 (C:\Git\ProjektCohort44FS\GatedCommunity\target\classes started by Andreas in C:\Git\ProjektCohort44FS\GatedCommunity)
-2024-09-09T17:59:34.566+02:00  INFO 3068 --- [GatedCommunity] [main] g.GatedCommunityApplication              : No active profile set, falling back to 1 default profile: "default"
-2024-09-09T17:59:38.422+02:00  INFO 3068 --- [GatedCommunity] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-09-09T17:59:38.687+02:00  INFO 3068 --- [GatedCommunity] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 227 ms. Found 2 JPA repository interfaces.
-2024-09-09T17:59:41.403+02:00  INFO 3068 --- [GatedCommunity] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2024-09-09T17:59:41.463+02:00  INFO 3068 --- [GatedCommunity] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-09-09T17:59:41.465+02:00  INFO 3068 --- [GatedCommunity] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
-2024-09-09T17:59:41.788+02:00  INFO 3068 --- [GatedCommunity] [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
-2024-09-09T17:59:41.792+02:00  INFO 3068 --- [GatedCommunity] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 7000 ms
-2024-09-09T17:59:42.252+02:00  INFO 3068 --- [GatedCommunity] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-09-09T17:59:42.821+02:00  INFO 3068 --- [GatedCommunity] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@73bb573d
-2024-09-09T17:59:42.838+02:00  INFO 3068 --- [GatedCommunity] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-09-09T17:59:43.523+02:00  INFO 3068 --- [GatedCommunity] [main] liquibase.database                       : Set default schema name to public
-2024-09-09T17:59:46.371+02:00  INFO 3068 --- [GatedCommunity] [main] liquibase.changelog                      : Reading from public.databasechangelog
-2024-09-09T17:59:46.509+02:00  INFO 3068 --- [GatedCommunity] [main] liquibase.ui                             : Database is up to date, no changesets to execute
-2024-09-09T17:59:46.515+02:00  INFO 3068 --- [GatedCommunity] [main] liquibase.changelog                      : Reading from public.databasechangelog
-2024-09-09T17:59:46.570+02:00  INFO 3068 --- [GatedCommunity] [main] liquibase.util                           : UPDATE SUMMARY
-2024-09-09T17:59:46.575+02:00  INFO 3068 --- [GatedCommunity] [main] liquibase.util                           : Run:                          0
-2024-09-09T17:59:46.577+02:00  INFO 3068 --- [GatedCommunity] [main] liquibase.util                           : Previously run:               2
-2024-09-09T17:59:46.581+02:00  INFO 3068 --- [GatedCommunity] [main] liquibase.util                           : Filtered out:                 0
-2024-09-09T17:59:46.585+02:00  INFO 3068 --- [GatedCommunity] [main] liquibase.util                           : -------------------------------
-2024-09-09T17:59:46.586+02:00  INFO 3068 --- [GatedCommunity] [main] liquibase.util                           : Total change sets:            2
-2024-09-09T17:59:46.591+02:00  INFO 3068 --- [GatedCommunity] [main] liquibase.util                           : Update summary generated
-2024-09-09T17:59:46.717+02:00  INFO 3068 --- [GatedCommunity] [main] liquibase.lockservice                    : Successfully released change log lock
-2024-09-09T17:59:46.731+02:00  INFO 3068 --- [GatedCommunity] [main] liquibase.command                        : Command execution complete
-2024-09-09T17:59:47.108+02:00  INFO 3068 --- [GatedCommunity] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-09-09T17:59:47.329+02:00  INFO 3068 --- [GatedCommunity] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
-2024-09-09T17:59:47.469+02:00  INFO 3068 --- [GatedCommunity] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-09-09T17:59:48.730+02:00  INFO 3068 --- [GatedCommunity] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-09-09T17:59:52.030+02:00  INFO 3068 --- [GatedCommunity] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-09-09T17:59:52.039+02:00  INFO 3068 --- [GatedCommunity] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-09-09T17:59:53.087+02:00  WARN 3068 --- [GatedCommunity] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'authController' defined in file [C:\Git\ProjektCohort44FS\GatedCommunity\target\classes\gatedcommunity\security\controller\AuthController.class]: Unsatisfied dependency expressed through constructor parameter 1: No qualifying bean of type 'gatedcommunity.service.interfaces.UserService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
-2024-09-09T17:59:53.089+02:00  INFO 3068 --- [GatedCommunity] [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-09-09T17:59:53.093+02:00  INFO 3068 --- [GatedCommunity] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2024-09-09T17:59:53.111+02:00  INFO 3068 --- [GatedCommunity] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2024-09-09T17:59:53.119+02:00  INFO 3068 --- [GatedCommunity] [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
-2024-09-09T17:59:53.190+02:00  INFO 3068 --- [GatedCommunity] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2024-09-09T17:59:53.253+02:00 ERROR 3068 --- [GatedCommunity] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Parameter 1 of constructor in gatedcommunity.security.controller.AuthController required a bean of type 'gatedcommunity.service.interfaces.UserService' that could not be found.
-
-
-Action:
-
-Consider defining a bean of type 'gatedcommunity.service.interfaces.UserService' in your configuration.
+org.springframework.context.ApplicationContextException: Unable to start web server
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:165) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:619) ~[spring-context-6.1.12.jar:6.1.12]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.3.jar:3.3.3]
+	at gatedcommunity.GatedCommunityApplication.main(GatedCommunityApplication.java:10) ~[classes/:na]
+Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:147) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:107) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:516) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:222) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:188) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:162) ~[spring-boot-3.3.3.jar:3.3.3]
+	... 8 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'tokenFilter' defined in file [C:\Users\weste\IdeaProjects\GatedCommunity\ProjectGatedCommunity\target\classes\gatedcommunity\security\filter\TokenFilter.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'tokenService' defined in file [C:\Users\weste\IdeaProjects\GatedCommunity\ProjectGatedCommunity\target\classes\gatedcommunity\security\service\TokenService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'roleRepository' defined in gatedcommunity.repository.RoleRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot resolve reference to bean 'jpaSharedEM_entityManagerFactory' while setting bean property 'entityManager'
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1375) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1212) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:205) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:211) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:174) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:169) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAdaptableBeans(ServletContextInitializerBeans.java:154) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:87) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:266) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:240) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:52) ~[spring-boot-3.3.3.jar:3.3.3]
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:4414) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1203) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1193) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145) ~[na:na]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:749) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:772) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1203) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1193) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145) ~[na:na]
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:749) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:203) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:415) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:874) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:437) ~[tomcat-embed-core-10.1.28.jar:10.1.28]
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:128) ~[spring-boot-3.3.3.jar:3.3.3]
+	... 13 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'tokenService' defined in file [C:\Users\weste\IdeaProjects\GatedCommunity\ProjectGatedCommunity\target\classes\gatedcommunity\security\service\TokenService.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'roleRepository' defined in gatedcommunity.repository.RoleRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot resolve reference to bean 'jpaSharedEM_entityManagerFactory' while setting bean property 'entityManager'
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:237) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1375) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1212) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782) ~[spring-beans-6.1.12.jar:6.1.12]
+	... 54 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'roleRepository' defined in gatedcommunity.repository.RoleRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Cannot resolve reference to bean 'jpaSharedEM_entityManagerFactory' while setting bean property 'entityManager'
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:377) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:135) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1705) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1454) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782) ~[spring-beans-6.1.12.jar:6.1.12]
+	... 68 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'jpaSharedEM_entityManagerFactory': Cannot resolve reference to bean 'entityManagerFactory' while setting constructor argument
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:377) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:135) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:682) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:509) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1355) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1185) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:365) ~[spring-beans-6.1.12.jar:6.1.12]
+	... 82 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: liquibase.exception.DatabaseException: org.postgresql.util.PSQLException: Der Verbindungsversuch schlug fehl.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1806) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:313) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:365) ~[spring-beans-6.1.12.jar:6.1.12]
+	... 94 common frames omitted
+Caused by: liquibase.exception.UnexpectedLiquibaseException: liquibase.exception.DatabaseException: org.postgresql.util.PSQLException: Der Verbindungsversuch schlug fehl.
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:259) ~[liquibase-core-4.27.0.jar:na]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1853) ~[spring-beans-6.1.12.jar:6.1.12]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1802) ~[spring-beans-6.1.12.jar:6.1.12]
+	... 103 common frames omitted
+Caused by: liquibase.exception.DatabaseException: org.postgresql.util.PSQLException: Der Verbindungsversuch schlug fehl.
+	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:251) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.lambda$child$0(Scope.java:190) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:199) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:189) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:168) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.Scope.child(Scope.java:256) ~[liquibase-core-4.27.0.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.afterPropertiesSet(SpringLiquibase.java:242) ~[liquibase-core-4.27.0.jar:na]
+	... 105 common frames omitted
+Caused by: org.postgresql.util.PSQLException: Der Verbindungsversuch schlug fehl.
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:358) ~[postgresql-42.7.3.jar:42.7.3]
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54) ~[postgresql-42.7.3.jar:42.7.3]
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273) ~[postgresql-42.7.3.jar:42.7.3]
+	at org.postgresql.Driver.makeConnection(Driver.java:446) ~[postgresql-42.7.3.jar:42.7.3]
+	at org.postgresql.Driver.connect(Driver.java:298) ~[postgresql-42.7.3.jar:42.7.3]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137) ~[HikariCP-5.1.0.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360) ~[HikariCP-5.1.0.jar:na]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202) ~[HikariCP-5.1.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461) ~[HikariCP-5.1.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:550) ~[HikariCP-5.1.0.jar:na]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:98) ~[HikariCP-5.1.0.jar:na]
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111) ~[HikariCP-5.1.0.jar:na]
+	at liquibase.integration.spring.SpringLiquibase.lambda$afterPropertiesSet$0(SpringLiquibase.java:246) ~[liquibase-core-4.27.0.jar:na]
+	... 111 common frames omitted
+Caused by: java.net.UnknownHostException: ${DB_HOST}
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:572) ~[na:na]
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327) ~[na:na]
+	at java.base/java.net.Socket.connect(Socket.java:633) ~[na:na]
+	at org.postgresql.core.PGStream.createSocket(PGStream.java:243) ~[postgresql-42.7.3.jar:42.7.3]
+	at org.postgresql.core.PGStream.<init>(PGStream.java:98) ~[postgresql-42.7.3.jar:42.7.3]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:136) ~[postgresql-42.7.3.jar:42.7.3]
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:262) ~[postgresql-42.7.3.jar:42.7.3]
+	... 123 common frames omitted
 
