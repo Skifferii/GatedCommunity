@@ -5,22 +5,18 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
 
-    <changeSet id="create-table-user-address" author="Oleksandr.S">
+    <changeSet id="create-table-user-address" author="EvgenGrushchenko">
         <createTable tableName="user_address">
-<!--            Соответствует типу Long в Java-->
             <column name="id" type="bigint" autoIncrement="true">
-<!--                Это ограничения. -->
                 <constraints primaryKey="true"/>
             </column>
-
+            
             <column name="user_id" type="bigint">
-                <constraints nullable="false" />
+                <constraints nullable="false"/>
             </column>
-
             <column name="address_id" type="bigint">
                 <constraints nullable="false"/>
             </column>
-
 
         </createTable>
     </changeSet>

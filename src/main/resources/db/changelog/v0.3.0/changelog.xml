@@ -5,12 +5,13 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
 
-    <changeSet id="add-tag-0.3.0" author="Oleksandr.S">
+    <changeSet id="add-tag-0.3.0" author="EvgenGrushchenko">
         <tagDatabase tag="v.0.3.0"/>
     </changeSet>
 
     <include file="create-table-address.xml" relativeToChangelogFile="true"/>
     <include file="create-table-user-address.xml" relativeToChangelogFile="true"/>
     <include file="create-foreign-keys-user-to-address.xml" relativeToChangelogFile="true"/>
+
 
 </databaseChangeLog>

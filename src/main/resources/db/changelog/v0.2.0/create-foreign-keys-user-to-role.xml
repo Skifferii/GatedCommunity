@@ -5,7 +5,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
 
-    <changeSet id="create-foreign-keys-user-to-role" author="Oleksandr.S">
+    <changeSet id="create-foreign-keys-user-to-role" author="EvgenGrushchenko">
 
         <addForeignKeyConstraint
                 baseTableName="user_role"
@@ -22,7 +22,6 @@
                 referencedTableName="role"
                 referencedColumnNames="id"
         />
-
     </changeSet>
 
 </databaseChangeLog>
