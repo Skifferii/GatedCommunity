@@ -36,7 +36,7 @@ public class PropositionServiceController {
         return propositionServiceService.getById(id);
     }
 
-    @GetMapping("/{title}")
+    @GetMapping("/bytitle/{title}")
     public PropositionServiceDTO getByTitle(
             @Parameter(description = "The id that needs to de fetche", required = true) @PathVariable("title") String title){
 
