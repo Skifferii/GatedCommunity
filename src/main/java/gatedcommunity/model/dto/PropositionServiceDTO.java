@@ -1,44 +1,45 @@
-package gatedcommunity.model.entity;
+package gatedcommunity.model.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 
 import java.util.Objects;
 
-@Entity
-@Table(name ="proposition_service")
-@Schema(description = "Class that describes proposition_service")
 
-public class PropositionService {
-    @Schema(description = "proposition_service unique identifier", example = "777", accessMode = Schema.AccessMode.READ_ONLY)
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+@Schema(description = "Class that describes proposition_service_DTO")
+
+public class PropositionServiceDTO {
+
+//  todo  @Schema(description = "proposition_service unique identifier", example = "777", accessMode = Schema.AccessMode.READ_ONLY)
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Column(name = "id")
     private Long id; //// null / 0
 
-    @Schema(description = "proposition_service title", example = "Change lamp")
-    @Column(name = "title")
+//  todo  @Schema(description = "proposition_service title", example = "Change lamp")
+//    @Column(name = "title")
     private String title;
 
-    @Schema(description = "proposition_service description", example = "change old lamp nach new")
-    @Column(name = "description")
+//  todo  @Schema(description = "proposition_service description", example = "change old lamp nach new")
+//    @Column(name = "description")
     private String description;
 
-    @Column(name = "image")
+//  todo  @Column(name = "image")
     private String image;
 
-    @Schema(description = "Is proposition_service available", accessMode = Schema.AccessMode.READ_ONLY)
-    @Column
+//  todo  @Schema(description = "Is proposition_service available", accessMode = Schema.AccessMode.READ_ONLY)
+//    @Column
     private boolean active; // null / false
 
 
-    public PropositionService() {
+    public PropositionServiceDTO() {
 
     }
 
+
     @Override
     public String toString() {
-        return String.format("Product: id - %d, title - %s, description - %s, active - %s",
+        return String.format("PropositionServiceDTO: id - %d, title - %s, description - %s, active - %s",
                 id, title, description, active ? "yes" : "no" );
     }
 
@@ -48,7 +49,7 @@ public class PropositionService {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        PropositionService that = (PropositionService) o;
+        PropositionServiceDTO that = (PropositionServiceDTO) o;
         return active == that.active && Objects.equals(id, that.id) && Objects.equals(title, that.title) && Objects.equals(description, that.description) && Objects.equals(image, that.image);
     }
 
@@ -63,7 +64,7 @@ public class PropositionService {
     }
 
 
-    public PropositionService(Long id, String title, String description, String image, boolean active) {
+    public PropositionServiceDTO(Long id, String title, String description, String image, boolean active) {
         this.id = id;
         this.title = title;
         this.description = description;
