@@ -4033,3 +4033,48 @@ This generated password is for development use only. Your security configuration
 2024-09-10T21:17:17.407+02:00  INFO 12064 --- [GatedCommunity] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-09-10T21:17:17.411+02:00  INFO 12064 --- [GatedCommunity] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2024-09-10T21:17:17.434+02:00  INFO 12064 --- [GatedCommunity] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-09-10T21:38:50.733+02:00  INFO 10720 --- [GatedCommunity] [main] g.GatedCommunityApplication              : Starting GatedCommunityApplication using Java 21.0.2 with PID 10720 (C:\Users\evgen\Desktop\IT-kurs\Prodgekt_GatedCommunity\GatedCommunity\target\classes started by evgen in C:\Users\evgen\Desktop\IT-kurs\Prodgekt_GatedCommunity\GatedCommunity)
+2024-09-10T21:38:50.740+02:00  INFO 10720 --- [GatedCommunity] [main] g.GatedCommunityApplication              : No active profile set, falling back to 1 default profile: "default"
+2024-09-10T21:38:54.251+02:00  INFO 10720 --- [GatedCommunity] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-10T21:38:54.499+02:00  INFO 10720 --- [GatedCommunity] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 209 ms. Found 3 JPA repository interfaces.
+2024-09-10T21:38:56.318+02:00  INFO 10720 --- [GatedCommunity] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-10T21:38:56.359+02:00  INFO 10720 --- [GatedCommunity] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-10T21:38:56.359+02:00  INFO 10720 --- [GatedCommunity] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-10T21:38:56.545+02:00  INFO 10720 --- [GatedCommunity] [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2024-09-10T21:38:56.549+02:00  INFO 10720 --- [GatedCommunity] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5636 ms
+2024-09-10T21:38:56.929+02:00  INFO 10720 --- [GatedCommunity] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-10T21:38:57.403+02:00  INFO 10720 --- [GatedCommunity] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5882b202
+2024-09-10T21:38:57.407+02:00  INFO 10720 --- [GatedCommunity] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-10T21:38:58.006+02:00  INFO 10720 --- [GatedCommunity] [main] liquibase.database                       : Set default schema name to public
+2024-09-10T21:39:00.044+02:00  INFO 10720 --- [GatedCommunity] [main] liquibase.changelog                      : Reading from public.databasechangelog
+2024-09-10T21:39:00.246+02:00  INFO 10720 --- [GatedCommunity] [main] liquibase.ui                             : Database is up to date, no changesets to execute
+2024-09-10T21:39:00.256+02:00  INFO 10720 --- [GatedCommunity] [main] liquibase.changelog                      : Reading from public.databasechangelog
+2024-09-10T21:39:00.290+02:00  INFO 10720 --- [GatedCommunity] [main] liquibase.util                           : UPDATE SUMMARY
+2024-09-10T21:39:00.291+02:00  INFO 10720 --- [GatedCommunity] [main] liquibase.util                           : Run:                          0
+2024-09-10T21:39:00.291+02:00  INFO 10720 --- [GatedCommunity] [main] liquibase.util                           : Previously run:              15
+2024-09-10T21:39:00.292+02:00  INFO 10720 --- [GatedCommunity] [main] liquibase.util                           : Filtered out:                 0
+2024-09-10T21:39:00.292+02:00  INFO 10720 --- [GatedCommunity] [main] liquibase.util                           : -------------------------------
+2024-09-10T21:39:00.292+02:00  INFO 10720 --- [GatedCommunity] [main] liquibase.util                           : Total change sets:           15
+2024-09-10T21:39:00.295+02:00  INFO 10720 --- [GatedCommunity] [main] liquibase.util                           : Update summary generated
+2024-09-10T21:39:00.369+02:00  INFO 10720 --- [GatedCommunity] [main] liquibase.lockservice                    : Successfully released change log lock
+2024-09-10T21:39:00.374+02:00  INFO 10720 --- [GatedCommunity] [main] liquibase.command                        : Command execution complete
+2024-09-10T21:39:00.703+02:00  INFO 10720 --- [GatedCommunity] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-10T21:39:00.903+02:00  INFO 10720 --- [GatedCommunity] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-10T21:39:01.036+02:00  INFO 10720 --- [GatedCommunity] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-09-10T21:39:02.018+02:00  INFO 10720 --- [GatedCommunity] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-10T21:39:05.288+02:00  INFO 10720 --- [GatedCommunity] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-10T21:39:05.301+02:00  INFO 10720 --- [GatedCommunity] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-10T21:39:06.454+02:00  WARN 10720 --- [GatedCommunity] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 131798da-3672-4e53-98b4-2a4f2fade5d0
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-09-10T21:39:06.986+02:00  WARN 10720 --- [GatedCommunity] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-10T21:39:07.055+02:00  INFO 10720 --- [GatedCommunity] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2024-09-10T21:39:09.213+02:00  WARN 10720 --- [GatedCommunity] [main] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location: [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.check-template-location=false)
+2024-09-10T21:39:09.457+02:00  INFO 10720 --- [GatedCommunity] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/api'
+2024-09-10T21:39:09.482+02:00  INFO 10720 --- [GatedCommunity] [main] g.GatedCommunityApplication              : Started GatedCommunityApplication in 21.063 seconds (process running for 23.495)
+2024-09-10T21:43:05.187+02:00  INFO 10720 --- [GatedCommunity] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-10T21:43:05.203+02:00  INFO 10720 --- [GatedCommunity] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-09-10T21:43:05.254+02:00  INFO 10720 --- [GatedCommunity] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
