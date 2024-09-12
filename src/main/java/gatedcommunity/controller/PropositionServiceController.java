@@ -45,6 +45,7 @@ public class PropositionServiceController {
     public List<PropositionServiceDTO> getByTitle(
             @Parameter(description = "The title that needs to de fetch", required = true) @RequestParam String title){ // /offered-services?title=LightBulb
 
+
         //  обращаемся к сервису для получения сервиса по title
         return propositionServiceService.getByTitle(title);
     }

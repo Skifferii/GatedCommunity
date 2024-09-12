@@ -41,7 +41,7 @@ public class PropositionServiceServiceImpl implements PropositionServiceService 
         PropositionService propositionService = repository.findById(id).orElse(null);
 
         if (propositionService == null ){
-            throw  new ThirdTestException("Product with id" + id + " not found");
+            throw  new ThirdTestException("Proposition service with id" + id + " not found");
         }
         if (!propositionService.isActive()){
             throw new FirstTestException("This is first Test Exception message");
