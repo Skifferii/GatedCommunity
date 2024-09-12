@@ -1,5 +1,6 @@
 package gatedcommunity.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 
@@ -29,6 +30,7 @@ public class PropositionServiceDTO {
 
 //  todo  @Schema(description = "Is proposition_service available", accessMode = Schema.AccessMode.READ_ONLY)
 //    @Column
+    @JsonIgnore
     private boolean active; // null / false
 
 
@@ -39,8 +41,8 @@ public class PropositionServiceDTO {
 
     @Override
     public String toString() {
-        return String.format("PropositionServiceDTO: id - %d, title - %s, description - %s, active - %s",
-                id, title, description, active ? "yes" : "no" );
+        return String.format("PropositionServiceDTO: id - %d, title - %s, description - %s",
+                id, title, description);
     }
 
 
