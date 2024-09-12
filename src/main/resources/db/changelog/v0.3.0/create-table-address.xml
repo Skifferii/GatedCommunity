@@ -14,7 +14,7 @@
             <column name="street" type="varchar(64)">
                 <constraints nullable="false" unique="true"/>
             </column>
-            <column name="number_house" type="bigint">
+            <column name="number_house" type="varchar(64)">
                 <constraints nullable="false" />
             </column>
             <column name="city" type="varchar(64)">

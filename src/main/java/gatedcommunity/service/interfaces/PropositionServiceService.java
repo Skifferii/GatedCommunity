@@ -12,7 +12,7 @@ public interface PropositionServiceService {
 
     PropositionServiceDTO getById(long id);
 
-    PropositionServiceDTO getByTitle(String title);
+    List<PropositionServiceDTO>  getByTitle(String title);
 
     List<PropositionServiceDTO> getAllPropositionService();
 
@@ -20,7 +20,7 @@ public interface PropositionServiceService {
 
     PropositionServiceDTO deleteById(Long id);
 
-
+    PropositionServiceDTO restoreById(Long id);
 
 
 }
