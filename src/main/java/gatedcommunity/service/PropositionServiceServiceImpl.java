@@ -41,7 +41,7 @@ public class PropositionServiceServiceImpl implements PropositionServiceService 
         PropositionService propositionService = repository.findById(id).orElse(null);
 
         if (propositionService == null ){
-            throw  new ThirdTestException("Product with id" + id + " not found");
+            throw  new ThirdTestException("Proposition service with id" + id + " not found");
         }
         if (!propositionService.isActive()){
             throw new FirstTestException("This is first Test Exception message");
@@ -51,13 +51,23 @@ public class PropositionServiceServiceImpl implements PropositionServiceService 
     }
 
     @Override
-    public PropositionServiceDTO getByTitle(String title) {
-        return null;
+    public List<PropositionServiceDTO> getByTitle(String title) {
+        return repository.findPropositionServiceByTitle(title).stream()
+                .filter(PropositionService::isActive)
+                .map(mapper::mapEntityToDto)
+                .toList();
     }
 
     @Override
     public List<PropositionServiceDTO> getAllPropositionService() {
-        return List.of();
+        System.out.println("test");
+        return repository.findAll().stream()
+                // фильтруем
+                .filter(PropositionService::isActive)
+                // превращаем элемент сртима из Product в сртим ProductDTO
+                .map(mapper::mapEntityToDto)
+                // собираем обратно в список
+                .toList();
     }
 
     @Override
@@ -69,4 +79,11 @@ public class PropositionServiceServiceImpl implements PropositionServiceService 
     public PropositionServiceDTO deleteById(Long id) {
         return null;
     }
+
+    @Override
+    public PropositionServiceDTO restoreById(Long id) {
+        return null;
+    }
+
+
 }

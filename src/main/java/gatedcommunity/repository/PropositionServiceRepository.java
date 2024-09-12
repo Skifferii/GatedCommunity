@@ -8,8 +8,8 @@ import java.util.Optional;
 
 public interface PropositionServiceRepository extends JpaRepository<PropositionService, Long> {
 
-
-    Optional<PropositionService> findPropositionServiceByTitle(String title);
+    List<PropositionService> findPropositionServiceByTitle(String title);
+//    Optional<PropositionService> findPropositionServiceByTitle(String title);
 }
 
 
@@ -17,10 +17,3 @@ public interface PropositionServiceRepository extends JpaRepository<PropositionS
 
 
 
-//public interface ProductRepository extends JpaRepository<Product, Long> {
-//
-//
-//    List<Product> findAllByActiveTrue();
-//    Optional<Product> findByTitle(String title);
-//    //    List<Product> findAllByActive(boolean active);
-//}

@@ -17,6 +17,18 @@
             <column name="password" type="char(60)">
                 <constraints nullable="false"/>
             </column>
+            <column name="first_name" type="varchar(32)">
+                <constraints unique="false" nullable="true"/>
+            </column>
+            <column name="last_name" type="varchar(32)">
+                <constraints unique="false" nullable="true"/>
+            </column>
+            <column name="email" type="varchar(64)" defaultValue="test@test.com">
+                <constraints nullable="false"/>
+            </column>
+            <column name="active" type="boolean">
+                <constraints nullable="true"/>
+            </column>
 
         </createTable>
     </changeSet>

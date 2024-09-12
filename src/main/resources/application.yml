@@ -16,6 +16,7 @@ spring:
         auto_quote_keyword: true
 
 
+#Эта настройка добавляет ко всем энпоэнтам /api
 server:
   servlet:
     context-path: /api
