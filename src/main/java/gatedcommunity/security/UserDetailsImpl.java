@@ -1,6 +1,6 @@
 package gatedcommunity.security;
 
-import gatedcommunity.model.dto.UserRegisterDto;
+import gatedcommunity.model.dto.UserRegisterDTO;
 import gatedcommunity.repository.UserRepository;
 import gatedcommunity.service.interfaces.UserService;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -25,7 +25,7 @@ public class UserDetailsImpl implements UserService {
     }
 
     @Override
-    public void register(UserRegisterDto registerDto) {
+    public void register(UserRegisterDTO registerDto) {
 
     }
 
