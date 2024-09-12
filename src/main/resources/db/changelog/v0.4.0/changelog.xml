@@ -5,14 +5,10 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
 
-    <changeSet id="add-roles" author="EvgenGrushchenko">
-        <insert tableName="role">
-            <column name="title" value="ROLE_USER"/>
-        </insert>
-
-        <insert tableName="role">
-            <column name="title" value="ROLE_ADMIN"/>
-        </insert>
+    <changeSet id="add-tag-0.4.0" author="EvgenGrushchenko">
+        <tagDatabase tag="v.0.4.0"/>
     </changeSet>
+    <include file="create-table-requests.xml" relativeToChangelogFile="true"/>
+    <include file="create-foreign-keys-requests-to-proposition-service-to-address.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

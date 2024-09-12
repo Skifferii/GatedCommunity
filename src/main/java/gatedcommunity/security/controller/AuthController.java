@@ -3,7 +3,7 @@ package gatedcommunity.security.controller;
 
 
 import gatedcommunity.exception_handling.Response;
-import gatedcommunity.model.dto.UserRegisterDto;
+import gatedcommunity.model.dto.UserRegisterDTO;
 import gatedcommunity.security.dto.LoginRequestDto;
 import gatedcommunity.security.dto.RefreshRequestDto;
 import gatedcommunity.security.dto.TokenResponseDto;
@@ -49,7 +49,7 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public Response register(@RequestBody UserRegisterDto userRegisterDto) {
+    public Response register(@RequestBody UserRegisterDTO userRegisterDto) {
         userService.register(userRegisterDto);
         return new Response("Registration Complete. Please check your email");
     }
