@@ -64,7 +64,7 @@ public class PropositionServiceServiceImpl implements PropositionServiceService 
         return repository.findAll().stream()
                 // фильтруем
                 .filter(PropositionService::isActive)
-                // превращаем элемент сртима из Product в сртим ProductDTO
+                // превращаем элемент стрима из Product в стрим ProductDTO
                 .map(mapper::mapEntityToDto)
                 // собираем обратно в список
                 .toList();
