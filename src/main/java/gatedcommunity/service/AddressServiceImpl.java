@@ -34,7 +34,9 @@ public class AddressServiceImpl implements AddressService {
     @Override
     public AddressDTO getAddressById(long id) {
         /*Address address = addressRepository.findAddressById(id);
-       if (address == null) {
+
+        if (address == null) {
+
             throw new ThirdTestException("Address with id " + id + " not found");
         }
         if (address.isActive()) {
