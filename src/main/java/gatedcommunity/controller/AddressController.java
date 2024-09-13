@@ -1,32 +1,39 @@
 package gatedcommunity.controller;
 
+import gatedcommunity.model.dto.AddressDTO;
 import gatedcommunity.model.entity.Address;
+import gatedcommunity.service.interfaces.AddressService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/address")
+@RequestMapping("/addresses")
 public class AddressController {
 
-    @PostMapping
-    public Address saveAddress(@RequestBody Address address) {
-        return address;
-    }
 
-    @GetMapping("/{id}")
-    public Address getAddressById(@PathVariable long id) {
+    @PostMapping
+    public AddressDTO saveAddress(@RequestBody AddressDTO addressDTO) {
         return null;
     }
 
+    @GetMapping("/{id}")
+    AddressDTO getAddressById( long id) {
+        return null;
+    };
+
     @PutMapping("/{id}")
-    public Address updateAddress(@PathVariable long id, @RequestBody Address address) {
-        return address;
+    public AddressDTO updateAddressById(@PathVariable Long id, @RequestBody AddressDTO addressDTO) {
+        return null;
     }
 
-
     @GetMapping
-    public List<Address> getAllAddress() {
+    public List<AddressDTO> getAllAddress() {
+        return null;
+    }
+
+    @DeleteMapping
+    public AddressDTO deleteAddressById(Long id) {
         return null;
     }
 

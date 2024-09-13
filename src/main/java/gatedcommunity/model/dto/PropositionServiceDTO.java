@@ -7,37 +7,27 @@ import jakarta.persistence.*;
 import java.util.Objects;
 
 
-@Schema(description = "Class that describes proposition_service_DTO")
+@Schema(description = "DTO for proposition_service")
 
 public class PropositionServiceDTO {
 
 //  todo  @Schema(description = "proposition_service unique identifier", example = "777", accessMode = Schema.AccessMode.READ_ONLY)
-//    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "id")
     private Long id; //// null / 0
 
 //  todo  @Schema(description = "proposition_service title", example = "Change lamp")
-//    @Column(name = "title")
     private String title;
 
 //  todo  @Schema(description = "proposition_service description", example = "change old lamp nach new")
-//    @Column(name = "description")
     private String description;
 
-//  todo  @Column(name = "image")
     private String image;
 
-//  todo  @Schema(description = "Is proposition_service available", accessMode = Schema.AccessMode.READ_ONLY)
-//    @Column
-    @JsonIgnore
-    private boolean active; // null / false
 
 
     public PropositionServiceDTO() {
 
     }
-
 
     @Override
     public String toString() {
@@ -45,33 +35,23 @@ public class PropositionServiceDTO {
                 id, title, description);
     }
 
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        PropositionServiceDTO that = (PropositionServiceDTO) o;
-        return active == that.active && Objects.equals(id, that.id) && Objects.equals(title, that.title) && Objects.equals(description, that.description) && Objects.equals(image, that.image);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = Objects.hashCode(id);
-        result = 31 * result + Objects.hashCode(title);
-        result = 31 * result + Objects.hashCode(description);
-        result = 31 * result + Objects.hashCode(image);
-        result = 31 * result + Boolean.hashCode(active);
-        return result;
-    }
-
-
-    public PropositionServiceDTO(Long id, String title, String description, String image, boolean active) {
+    public PropositionServiceDTO(Long id, String title, String description, String image) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.image = image;
-        this.active = active;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof PropositionServiceDTO that)) return false;
+        return Objects.equals(id, that.id) && Objects.equals(title, that.title) && Objects.equals(description, that.description) && Objects.equals(image, that.image);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, description, image);
     }
 
     public Long getId() {
@@ -106,11 +86,4 @@ public class PropositionServiceDTO {
         this.image = image;
     }
 
-    public boolean isActive() {
-        return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
-    }
 }
