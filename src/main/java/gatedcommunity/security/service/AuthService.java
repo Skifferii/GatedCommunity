@@ -23,11 +23,11 @@ public class AuthService {
     // username : token
     private final Map<String, String> refreshStorage;
 
-    public AuthService(UserDetailsService userService, TokenService tokenService, BCryptPasswordEncoder passwordEncoder, Map<String, String> refreshStorage) {
+    public AuthService(UserDetailsService userService, TokenService tokenService, BCryptPasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.tokenService = tokenService;
         this.passwordEncoder = passwordEncoder;
-        this.refreshStorage = refreshStorage;
+        this.refreshStorage = new HashMap<>();
     }
 
 
