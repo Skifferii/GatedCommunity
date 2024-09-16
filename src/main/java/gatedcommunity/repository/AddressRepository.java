@@ -8,6 +8,6 @@ import java.util.List;
 public interface AddressRepository extends JpaRepository<Address, Integer> {
 
 
-    List<Address> findAddressById (long id);
-   /* List<Address> findAddress(Long id);*/
+//    List<Address> findAddressById (long id);
+//   /* List<Address> findAddress(Long id);*/
 }
