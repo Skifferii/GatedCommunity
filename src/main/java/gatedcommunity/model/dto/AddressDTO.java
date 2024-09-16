@@ -14,7 +14,7 @@ public class AddressDTO {
     /*@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")*/
-    private Long id;
+    private long id;
 
    /* @Column(name = "street")*/
     private String street;
