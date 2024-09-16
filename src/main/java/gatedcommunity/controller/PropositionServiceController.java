@@ -50,19 +50,6 @@ public class PropositionServiceController {
         }
     }
 
-//    @GetMapping
-//    public List<PropositionServiceDTO> getPropositionServiceByTitle(
-//            @Parameter(description = "The title that needs to de fetch", required = true) @RequestParam String title){ // /offered-services?title=LightBulb
-//
-//        //  обращаемся к сервису для получения сервиса по title
-//        return propositionServiceService.getPropositionServiceByTitle(title);
-//    }
-//
-//    @GetMapping("/all")
-//    public List<PropositionServiceDTO> getAllPropositionService(){
-//        return propositionServiceService.getAllPropositionService();
-//    }
-
     @PutMapping("/{id}")
     public PropositionServiceDTO updatePropositionService(Long id, @RequestBody PropositionServiceDTO propositionServiceDTO){
         return propositionServiceService.updatePropositionService(id, propositionServiceDTO);
