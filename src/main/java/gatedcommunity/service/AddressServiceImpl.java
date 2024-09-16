@@ -33,16 +33,18 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     public AddressDTO getAddressById(long id) {
-        /*Address address = addressRepository.findAddressById(id);
+        Address address = addressRepository.findById(id).orElse(null);
+
 
         if (address == null) {
             throw new ThirdTestException("Address with id " + id + " not found");
         }
-        if (address.isActive()) {
-            throw new FirstTestException("This is first test Exception message");
+        if (!address.isActive()) {
+            System.out.println("Address not active");
+            throw new FirstTestException("Address not active!!!"); // подумать
         }
-        return addressMappingService.mapEntityToDto(address);*/
-        return null;
+        return addressMappingService.mapEntityToDto(address);
+
     }
 
     @Override
