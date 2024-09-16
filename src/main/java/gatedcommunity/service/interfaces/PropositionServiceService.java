@@ -10,17 +10,17 @@ public interface PropositionServiceService {
 
     PropositionServiceDTO savePropositionService(PropositionServiceDTO propositionServiceDTO);
 
-    PropositionServiceDTO getById(long id);
+    PropositionServiceDTO getPropositionServiceById(long id);
 
-    List<PropositionServiceDTO>  getByTitle(String title);
+    List<PropositionServiceDTO> getPropositionServiceByTitle(String title);
 
     List<PropositionServiceDTO> getAllPropositionService();
 
     PropositionServiceDTO updatePropositionService(Long id, PropositionServiceDTO propositionServiceDTO);
 
-    PropositionServiceDTO deleteById(Long id);
+    PropositionServiceDTO deletePropositionServiceById(Long id);
 
-    PropositionServiceDTO restoreById(Long id);
+    PropositionServiceDTO restorePropositionServiceById(Long id);
 
 
 }
