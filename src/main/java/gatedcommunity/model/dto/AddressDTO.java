@@ -1,43 +1,44 @@
-package gatedcommunity.model.entity;
+package gatedcommunity.model.dto;
 
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import gatedcommunity.model.entity.Address;
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 import java.util.Objects;
 
-@Entity
-@Table(name = "address")
+public class AddressDTO {
 
-public class Address {
-
-    @Id
+    /*@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
+    @Column(name = "id")*/
+    private long id;
 
-    @Column(name = "street")
+   /* @Column(name = "street")*/
     private String street;
 
-    @Column(name = "number_house")
+    /*@Column(name = "number_house")*/
     private String numberHouse;
 
-    @Column(name = "city")
+    /*@Column(name = "city")*/
     private String city;
 
-    @Column(name = "index")
+   /* @Column(name = "index")*/
     private int index;
 
-    @Column(name = "active")
+   /* @Column(name = "active")*/
+    @JsonIgnore
     private boolean active;
 
-
-    public Address() {
-
+    public AddressDTO() {
     }
 
-    public Address(Long id, String street, String house, String city, int index, boolean active) {
+    public AddressDTO(Long id, String street, String numberHouse, String city, int index, boolean active) {
         this.id = id;
         this.street = street;
-        this.numberHouse = house;
+        this.numberHouse = numberHouse;
         this.city = city;
         this.index = index;
         this.active = active;
@@ -45,15 +46,16 @@ public class Address {
 
     @Override
     public String toString() {
-        return String.format("Address: id - %d, street - %s, numberHouse - %s, city - %s, index - %d, active - %s",
-                id, street, numberHouse, city, index, active ? "yes" : "no" );
+        return String.format("Address: id - %d, street - %s, numberHouse - %s, city - %s, index - %d",
+                id, street, numberHouse, city, index);
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Address address)) return false;
-        return index == address.index && active == address.active && Objects.equals(id, address.id) && Objects.equals(street, address.street) && Objects.equals(numberHouse, address.numberHouse) && Objects.equals(city, address.city);
+        if (o == null || getClass() != o.getClass()) return false;
+        AddressDTO that = (AddressDTO) o;
+        return index == that.index && active == that.active && Objects.equals(id, that.id) && Objects.equals(street, that.street) && Objects.equals(numberHouse, that.numberHouse) && Objects.equals(city, that.city);
     }
 
     @Override
@@ -93,6 +95,13 @@ public class Address {
         this.city = city;
     }
 
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+    }
 
     public boolean isActive() {
         return active;
@@ -100,13 +109,5 @@ public class Address {
 
     public void setActive(boolean active) {
         this.active = active;
-    }
-
-    public int getIndex() {
-        return index;
-    }
-
-    public void setIndex(int index) {
-        this.index = index;
     }
 }

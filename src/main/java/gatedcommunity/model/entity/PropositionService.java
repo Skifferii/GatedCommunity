@@ -36,10 +36,9 @@ public class PropositionService {
 
     }
 
-
     @Override
     public String toString() {
-        return String.format("Product: id - %d, title - %s, description - %s, active - %s",
+        return String.format("PropositionService: id - %d, title - %s, description - %s, active - %s",
                 id, title, description, active ? "yes" : "no" );
     }
 
