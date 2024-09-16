@@ -37,13 +37,14 @@ public class PropositionServiceServiceImpl implements PropositionServiceService 
     }
 
     @Override
-    public PropositionServiceDTO getById(long id) {
+    public PropositionServiceDTO getPropositionServiceById(long id) {
         PropositionService propositionService = repository.findById(id).orElse(null);
 
         if (propositionService == null ){
             throw  new ThirdTestException("Proposition service with id" + id + " not found");
         }
         if (!propositionService.isActive()){
+            System.out.println("Proposition service not activity");
             throw new FirstTestException("This is first Test Exception message");
         }
 
@@ -51,7 +52,7 @@ public class PropositionServiceServiceImpl implements PropositionServiceService 
     }
 
     @Override
-    public List<PropositionServiceDTO> getByTitle(String title) {
+    public List<PropositionServiceDTO> getPropositionServiceByTitle(String title) {
         return repository.findPropositionServiceByTitle(title).stream()
                 .filter(PropositionService::isActive)
                 .map(mapper::mapEntityToDto)
@@ -60,7 +61,6 @@ public class PropositionServiceServiceImpl implements PropositionServiceService 
 
     @Override
     public List<PropositionServiceDTO> getAllPropositionService() {
-        System.out.println("test");
         return repository.findAll().stream()
                 // фильтруем
                 .filter(PropositionService::isActive)
@@ -76,12 +76,18 @@ public class PropositionServiceServiceImpl implements PropositionServiceService 
     }
 
     @Override
-    public PropositionServiceDTO deleteById(Long id) {
-        return null;
+    public PropositionServiceDTO deletePropositionServiceById(Long id) {
+        PropositionService propositionService = repository.findById(id).orElse(null);
+        if (propositionService != null) {
+            repository.deleteById(id);
+        }
+
+        return mapper.mapEntityToDto(propositionService);
+
     }
 
     @Override
-    public PropositionServiceDTO restoreById(Long id) {
+    public PropositionServiceDTO restorePropositionServiceById(Long id) {
         return null;
     }
 
