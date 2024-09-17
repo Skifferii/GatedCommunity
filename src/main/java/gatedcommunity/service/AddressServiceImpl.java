@@ -1,7 +1,7 @@
 package gatedcommunity.service;
 
 import gatedcommunity.exception_handling.exceptions.FirstTestException;
-import gatedcommunity.exception_handling.exceptions.ThirdTestException;
+import gatedcommunity.exception_handling.exceptions.TextException;
 import gatedcommunity.model.dto.AddressDTO;
 import gatedcommunity.model.entity.Address;
 import gatedcommunity.repository.AddressRepository;
@@ -9,8 +9,6 @@ import gatedcommunity.service.interfaces.AddressService;
 import gatedcommunity.service.mapping.AddressMappingService;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -39,7 +37,7 @@ public class AddressServiceImpl implements AddressService {
 
 
         if (address == null) {
-            throw new ThirdTestException("Address with id " + id + " not found");
+            throw new TextException("Address with id " + id + " not found");
         }
         if (!address.isActive()) {
             System.out.println("Address not active");
