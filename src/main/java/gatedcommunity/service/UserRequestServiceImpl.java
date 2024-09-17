@@ -2,7 +2,6 @@ package gatedcommunity.service;
 
 import gatedcommunity.exception_handling.exceptions.TextException;
 import gatedcommunity.model.dto.UserRequestDTO;
-import gatedcommunity.model.entity.PropositionService;
 import gatedcommunity.model.entity.UserRequest;
 import gatedcommunity.repository.UserRequestRepository;
 import gatedcommunity.service.interfaces.UserRequestService;
@@ -59,17 +58,22 @@ public class UserRequestServiceImpl implements UserRequestService {
                 .map(mapper::mapEntityToDTO)
                 .toList();
     }
+
     @Override
     public UserRequestDTO updateUserRequest(Long id, UserRequestDTO userRequestDTO) {
-              UserRequest userRequest = repository.findById(id).orElse(null);
+        UserRequest userRequest = repository.findById(id).orElse(null);
         if (userRequest != null) {
-            mapper.mapDTOToEntity( userRequestDTO);
+            mapper.mapDTOToEntity(userRequestDTO);
+            userRequest.setUserId(userRequestDTO.getUserId());
+            userRequest.setDescription(userRequestDTO.getDescription());
+            userRequest.setAddressId(userRequestDTO.getAddressId());
+            userRequest.setPropositionServiceId(userRequestDTO.getPropositionServiceId());
+            userRequest.setDesiredDateTime(userRequestDTO.getDesiredDateTime());
+            userRequest.setPhoto(userRequestDTO.getPhoto());
             userRequest.setActive(true);
             return mapper.mapEntityToDTO(repository.save(userRequest));
         } else {
-            // Если объект не найден, можно выбросить исключение или вернуть null
-             throw new EntityNotFoundException("User_request not found for id: " + id);
-
+            throw new EntityNotFoundException("User_request not found for id: " + id);
         }
     }
 
@@ -79,7 +83,6 @@ public class UserRequestServiceImpl implements UserRequestService {
         if (userRequest != null) {
             repository.deleteById(id);
         }
-
         return mapper.mapEntityToDTO(userRequest);
     }
 
@@ -89,7 +92,6 @@ public class UserRequestServiceImpl implements UserRequestService {
         if (userRequest != null) {
             userRequest.setActive(true);
         }
-
         return mapper.mapEntityToDTO(userRequest);
     }
 

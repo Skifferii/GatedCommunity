@@ -133,3 +133,90 @@ This generated password is for development use only. Your security configuration
 2024-09-17T18:27:32.415+02:00  INFO 17120 --- [GatedCommunity] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2024-09-17T18:27:32.425+02:00  INFO 17120 --- [GatedCommunity] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2024-09-17T18:27:32.439+02:00  INFO 17120 --- [GatedCommunity] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-09-17T18:51:16.035+02:00  INFO 10916 --- [GatedCommunity] [main] g.GatedCommunityApplication              : Starting GatedCommunityApplication using Java 17.0.12 with PID 10916 (C:\Git\ProjektCohort44FS\GatedCommunity\target\classes started by Andreas in C:\Git\ProjektCohort44FS\GatedCommunity)
+2024-09-17T18:51:16.044+02:00  INFO 10916 --- [GatedCommunity] [main] g.GatedCommunityApplication              : The following 1 profile is active: "dev"
+2024-09-17T18:51:19.239+02:00  INFO 10916 --- [GatedCommunity] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-17T18:51:19.518+02:00  INFO 10916 --- [GatedCommunity] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 236 ms. Found 5 JPA repository interfaces.
+2024-09-17T18:51:21.958+02:00  INFO 10916 --- [GatedCommunity] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-17T18:51:22.001+02:00  INFO 10916 --- [GatedCommunity] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-17T18:51:22.002+02:00  INFO 10916 --- [GatedCommunity] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-17T18:51:22.198+02:00  INFO 10916 --- [GatedCommunity] [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2024-09-17T18:51:22.199+02:00  INFO 10916 --- [GatedCommunity] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5944 ms
+2024-09-17T18:51:22.556+02:00  INFO 10916 --- [GatedCommunity] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-17T18:51:22.956+02:00  INFO 10916 --- [GatedCommunity] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4466cf5d
+2024-09-17T18:51:22.961+02:00  INFO 10916 --- [GatedCommunity] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-17T18:51:23.453+02:00  INFO 10916 --- [GatedCommunity] [main] liquibase.database                       : Set default schema name to public
+2024-09-17T18:51:24.948+02:00  INFO 10916 --- [GatedCommunity] [main] liquibase.changelog                      : Reading from public.databasechangelog
+2024-09-17T18:51:25.074+02:00  INFO 10916 --- [GatedCommunity] [main] liquibase.ui                             : Database is up to date, no changesets to execute
+2024-09-17T18:51:25.077+02:00  INFO 10916 --- [GatedCommunity] [main] liquibase.changelog                      : Reading from public.databasechangelog
+2024-09-17T18:51:25.102+02:00  INFO 10916 --- [GatedCommunity] [main] liquibase.util                           : UPDATE SUMMARY
+2024-09-17T18:51:25.102+02:00  INFO 10916 --- [GatedCommunity] [main] liquibase.util                           : Run:                          0
+2024-09-17T18:51:25.102+02:00  INFO 10916 --- [GatedCommunity] [main] liquibase.util                           : Previously run:              15
+2024-09-17T18:51:25.102+02:00  INFO 10916 --- [GatedCommunity] [main] liquibase.util                           : Filtered out:                 0
+2024-09-17T18:51:25.103+02:00  INFO 10916 --- [GatedCommunity] [main] liquibase.util                           : -------------------------------
+2024-09-17T18:51:25.103+02:00  INFO 10916 --- [GatedCommunity] [main] liquibase.util                           : Total change sets:           15
+2024-09-17T18:51:25.105+02:00  INFO 10916 --- [GatedCommunity] [main] liquibase.util                           : Update summary generated
+2024-09-17T18:51:25.148+02:00  INFO 10916 --- [GatedCommunity] [main] liquibase.lockservice                    : Successfully released change log lock
+2024-09-17T18:51:25.156+02:00  INFO 10916 --- [GatedCommunity] [main] liquibase.command                        : Command execution complete
+2024-09-17T18:51:25.405+02:00  INFO 10916 --- [GatedCommunity] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-17T18:51:25.524+02:00  INFO 10916 --- [GatedCommunity] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-17T18:51:25.598+02:00  INFO 10916 --- [GatedCommunity] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-09-17T18:51:26.271+02:00  INFO 10916 --- [GatedCommunity] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-17T18:51:28.561+02:00  INFO 10916 --- [GatedCommunity] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-17T18:51:28.566+02:00  INFO 10916 --- [GatedCommunity] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-17T18:51:29.476+02:00  WARN 10916 --- [GatedCommunity] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 22defb99-3330-40be-b1d9-216f669a91fd
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-09-17T18:51:29.889+02:00  WARN 10916 --- [GatedCommunity] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-17T18:51:29.961+02:00  INFO 10916 --- [GatedCommunity] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2024-09-17T18:51:31.592+02:00  WARN 10916 --- [GatedCommunity] [main] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location: [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.check-template-location=false)
+2024-09-17T18:51:31.745+02:00  INFO 10916 --- [GatedCommunity] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/api'
+2024-09-17T18:51:31.770+02:00  INFO 10916 --- [GatedCommunity] [main] g.GatedCommunityApplication              : Started GatedCommunityApplication in 17.078 seconds (process running for 19.193)
+2024-09-17T20:05:26.744+02:00  INFO 10916 --- [GatedCommunity] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-09-17T20:05:26.756+02:00  INFO 10916 --- [GatedCommunity] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-09-17T20:05:26.782+02:00  INFO 10916 --- [GatedCommunity] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-09-17T20:05:56.126+02:00  INFO 16228 --- [GatedCommunity] [main] g.GatedCommunityApplication              : Starting GatedCommunityApplication using Java 17.0.12 with PID 16228 (C:\Git\ProjektCohort44FS\GatedCommunity\target\classes started by Andreas in C:\Git\ProjektCohort44FS\GatedCommunity)
+2024-09-17T20:05:56.135+02:00  INFO 16228 --- [GatedCommunity] [main] g.GatedCommunityApplication              : The following 1 profile is active: "dev"
+2024-09-17T20:05:59.393+02:00  INFO 16228 --- [GatedCommunity] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-09-17T20:05:59.642+02:00  INFO 16228 --- [GatedCommunity] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 220 ms. Found 5 JPA repository interfaces.
+2024-09-17T20:06:01.714+02:00  INFO 16228 --- [GatedCommunity] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-09-17T20:06:01.764+02:00  INFO 16228 --- [GatedCommunity] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-09-17T20:06:01.765+02:00  INFO 16228 --- [GatedCommunity] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.28]
+2024-09-17T20:06:02.038+02:00  INFO 16228 --- [GatedCommunity] [main] o.a.c.c.C.[Tomcat].[localhost].[/api]    : Initializing Spring embedded WebApplicationContext
+2024-09-17T20:06:02.044+02:00  INFO 16228 --- [GatedCommunity] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5716 ms
+2024-09-17T20:06:02.456+02:00  INFO 16228 --- [GatedCommunity] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-09-17T20:06:02.919+02:00  INFO 16228 --- [GatedCommunity] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@50cbcca7
+2024-09-17T20:06:02.923+02:00  INFO 16228 --- [GatedCommunity] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-09-17T20:06:03.573+02:00  INFO 16228 --- [GatedCommunity] [main] liquibase.database                       : Set default schema name to public
+2024-09-17T20:06:05.682+02:00  INFO 16228 --- [GatedCommunity] [main] liquibase.changelog                      : Reading from public.databasechangelog
+2024-09-17T20:06:05.867+02:00  INFO 16228 --- [GatedCommunity] [main] liquibase.ui                             : Database is up to date, no changesets to execute
+2024-09-17T20:06:05.879+02:00  INFO 16228 --- [GatedCommunity] [main] liquibase.changelog                      : Reading from public.databasechangelog
+2024-09-17T20:06:05.913+02:00  INFO 16228 --- [GatedCommunity] [main] liquibase.util                           : UPDATE SUMMARY
+2024-09-17T20:06:05.914+02:00  INFO 16228 --- [GatedCommunity] [main] liquibase.util                           : Run:                          0
+2024-09-17T20:06:05.915+02:00  INFO 16228 --- [GatedCommunity] [main] liquibase.util                           : Previously run:              15
+2024-09-17T20:06:05.918+02:00  INFO 16228 --- [GatedCommunity] [main] liquibase.util                           : Filtered out:                 0
+2024-09-17T20:06:05.919+02:00  INFO 16228 --- [GatedCommunity] [main] liquibase.util                           : -------------------------------
+2024-09-17T20:06:05.922+02:00  INFO 16228 --- [GatedCommunity] [main] liquibase.util                           : Total change sets:           15
+2024-09-17T20:06:05.929+02:00  INFO 16228 --- [GatedCommunity] [main] liquibase.util                           : Update summary generated
+2024-09-17T20:06:06.053+02:00  INFO 16228 --- [GatedCommunity] [main] liquibase.lockservice                    : Successfully released change log lock
+2024-09-17T20:06:06.059+02:00  INFO 16228 --- [GatedCommunity] [main] liquibase.command                        : Command execution complete
+2024-09-17T20:06:06.414+02:00  INFO 16228 --- [GatedCommunity] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-09-17T20:06:06.556+02:00  INFO 16228 --- [GatedCommunity] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-09-17T20:06:06.654+02:00  INFO 16228 --- [GatedCommunity] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-09-17T20:06:07.609+02:00  INFO 16228 --- [GatedCommunity] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-09-17T20:06:10.563+02:00  INFO 16228 --- [GatedCommunity] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-09-17T20:06:10.569+02:00  INFO 16228 --- [GatedCommunity] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-09-17T20:06:11.613+02:00  WARN 16228 --- [GatedCommunity] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 087916b4-7e46-4fca-8137-883ecd8f815c
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-09-17T20:06:12.084+02:00  WARN 16228 --- [GatedCommunity] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-09-17T20:06:12.142+02:00  INFO 16228 --- [GatedCommunity] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2024-09-17T20:06:13.804+02:00  WARN 16228 --- [GatedCommunity] [main] o.s.b.a.f.FreeMarkerAutoConfiguration    : Cannot find template location: [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.check-template-location=false)
+2024-09-17T20:06:13.995+02:00  INFO 16228 --- [GatedCommunity] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/api'
+2024-09-17T20:06:14.014+02:00  INFO 16228 --- [GatedCommunity] [main] g.GatedCommunityApplication              : Started GatedCommunityApplication in 19.899 seconds (process running for 23.222)
