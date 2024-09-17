@@ -7,6 +7,7 @@ import gatedcommunity.model.entity.Address;
 import gatedcommunity.repository.AddressRepository;
 import gatedcommunity.service.interfaces.AddressService;
 import gatedcommunity.service.mapping.AddressMappingService;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +27,7 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     public AddressDTO saveAddress(AddressDTO addressDTO) {
+
         Address address = addressMappingService.mapDtoToEntity(addressDTO);
         address.setActive(true);
         return addressMappingService.mapEntityToDto(addressRepository.save(address));
@@ -44,7 +46,6 @@ public class AddressServiceImpl implements AddressService {
             throw new FirstTestException("Address not active!!!"); // подумать
         }
         return addressMappingService.mapEntityToDto(address);
-
     }
 
     @Override
@@ -54,18 +55,30 @@ public class AddressServiceImpl implements AddressService {
                 .filter(Address::isActive)
                 .map(addressMappingService::mapEntityToDto)
                 .toList();
-
     }
 
     @Override
     public AddressDTO updateAddressById(Long id, AddressDTO addressDTO) {
 
-        return null;
+        Address address = addressRepository.findById(id).orElse(null);
+
+        address.setStreet(addressDTO.getStreet());
+        address.setNumberHouse(addressDTO.getNumberHouse());
+        address.setCity(addressDTO.getCity());
+        address.setIndex(addressDTO.getIndex());
+        address.setActive(addressDTO.isActive());
+
+        return addressMappingService.mapEntityToDto(addressRepository.save(address));
+
     }
 
     @Override
     public AddressDTO deleteAddressById(Long id) {
 
-        return null;
+        Address address = addressRepository.findById(id).orElse(null);
+        if (address != null) {
+            addressRepository.deleteById(id);
+        }
+        return addressMappingService.mapEntityToDto(address);
     }
 }
