@@ -23,7 +23,7 @@ public class PropositionServiceController {
     }
 
 
-    public void attachImage(String imageUrl, String productTitle) {
+    public void attachImage(String imageUrl, String PropositionServiceTitle) {
 
     }
 
@@ -50,8 +50,8 @@ public class PropositionServiceController {
         }
     }
 
-    @PutMapping("/{id}")
-    public PropositionServiceDTO updatePropositionService(Long id, @RequestBody PropositionServiceDTO propositionServiceDTO){
+    @PutMapping("/update/{id}")
+    public PropositionServiceDTO updatePropositionService(@PathVariable("id") Long id, @RequestBody PropositionServiceDTO propositionServiceDTO){
         return propositionServiceService.updatePropositionService(id, propositionServiceDTO);
     }
 
@@ -61,9 +61,15 @@ public class PropositionServiceController {
         return propositionServiceService.deletePropositionServiceById(id);
     }
 
+
     // PUT /offered-services/restore/2
     @PutMapping("/restore/{id}")
     public PropositionServiceDTO restorePropositionServiceById(@PathVariable Long id) {
+        return propositionServiceService.restorePropositionServiceById(id);
+    }
+
+    @PutMapping("/remove/{id}")
+    public PropositionServiceDTO removePropositionServiceById(@PathVariable Long id) {
         return propositionServiceService.restorePropositionServiceById(id);
     }
 }
