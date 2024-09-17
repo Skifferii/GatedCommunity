@@ -1,7 +1,7 @@
 package gatedcommunity.service;
 
 import gatedcommunity.exception_handling.exceptions.FirstTestException;
-import gatedcommunity.exception_handling.exceptions.ThirdTestException;
+import gatedcommunity.exception_handling.exceptions.TextException;
 import gatedcommunity.model.dto.PropositionServiceDTO;
 import gatedcommunity.model.entity.PropositionService;
 import gatedcommunity.repository.PropositionServiceRepository;
@@ -41,7 +41,7 @@ public class PropositionServiceServiceImpl implements PropositionServiceService 
         PropositionService propositionService = repository.findById(id).orElse(null);
 
         if (propositionService == null ){
-            throw  new ThirdTestException("Proposition service with id" + id + " not found");
+            throw  new TextException("Proposition service with id" + id + " not found");
         }
         if (!propositionService.isActive()){
             System.out.println("Proposition service not activity");
