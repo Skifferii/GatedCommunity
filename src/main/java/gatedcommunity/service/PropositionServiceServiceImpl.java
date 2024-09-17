@@ -88,7 +88,6 @@ public class PropositionServiceServiceImpl implements PropositionServiceService 
         if (propositionService != null) {
             repository.deleteById(id);
         }
-
         return mapper.mapEntityToDto(propositionService);
 
     }
