@@ -1,6 +1,6 @@
 package gatedcommunity.exception_handling;
 
-import gatedcommunity.exception_handling.exceptions.ThirdTestException;
+import gatedcommunity.exception_handling.exceptions.TextException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -14,8 +14,8 @@ import java.util.List;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(ThirdTestException.class)
-    public ResponseEntity<Response> handleThirdTestException(ThirdTestException e) {
+    @ExceptionHandler(TextException.class)
+    public ResponseEntity<Response> handleTextException(TextException e) {
         Response response = new Response(e.getMessage());
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }

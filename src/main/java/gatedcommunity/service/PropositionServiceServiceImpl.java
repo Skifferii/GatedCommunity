@@ -1,7 +1,7 @@
 package gatedcommunity.service;
 
 import gatedcommunity.exception_handling.exceptions.FirstTestException;
-import gatedcommunity.exception_handling.exceptions.ThirdTestException;
+import gatedcommunity.exception_handling.exceptions.TextException;
 import gatedcommunity.model.dto.PropositionServiceDTO;
 import gatedcommunity.model.entity.PropositionService;
 import gatedcommunity.repository.PropositionServiceRepository;
@@ -25,7 +25,7 @@ public class PropositionServiceServiceImpl implements PropositionServiceService 
 
     @Transactional
     @Override
-    public void attachImage(String imageUrl, String productTitle) {
+    public void attachImage(String imageUrl, String PropositionServiceTitle) {
 
     }
 
@@ -41,7 +41,7 @@ public class PropositionServiceServiceImpl implements PropositionServiceService 
         PropositionService propositionService = repository.findById(id).orElse(null);
 
         if (propositionService == null ){
-            throw  new ThirdTestException("Proposition service with id" + id + " not found");
+            throw  new TextException("Proposition service with id" + id + " not found");
         }
         if (!propositionService.isActive()){
             System.out.println("Proposition service not activity");
@@ -72,7 +72,14 @@ public class PropositionServiceServiceImpl implements PropositionServiceService 
 
     @Override
     public PropositionServiceDTO updatePropositionService(Long id, PropositionServiceDTO propositionServiceDTO) {
-        return null;
+        PropositionService propositionService = repository.findById(id).orElse(null);
+        mapper.mapDtoToEntity(propositionServiceDTO);
+        propositionService.setTitle(propositionServiceDTO.getTitle());
+        propositionService.setDescription(propositionServiceDTO.getDescription());
+        propositionService.setImage(propositionServiceDTO.getImage());
+        propositionService.setActive(true);
+
+        return mapper.mapEntityToDto(repository.save(propositionService));
     }
 
     @Override
@@ -81,15 +88,25 @@ public class PropositionServiceServiceImpl implements PropositionServiceService 
         if (propositionService != null) {
             repository.deleteById(id);
         }
-
         return mapper.mapEntityToDto(propositionService);
 
     }
 
     @Override
     public PropositionServiceDTO restorePropositionServiceById(Long id) {
-        return null;
+        PropositionService propositionService = repository.findById(id).orElse(null);
+        if (propositionService != null) {
+            propositionService.setActive(true);
+        }
+        return mapper.mapEntityToDto(propositionService);
     }
 
-
+    @Override
+    public PropositionServiceDTO removePropositionServiceById(Long id) {
+        PropositionService propositionService = repository.findById(id).orElse(null);
+        if (propositionService != null) {
+            propositionService.setActive(false);
+        }
+        return mapper.mapEntityToDto(propositionService);
+    }
 }
