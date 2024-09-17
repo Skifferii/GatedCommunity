@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface PropositionServiceService {
 
-    void attachImage(String imageUrl, String productTitle);
+    void attachImage(String imageUrl, String PropositionServiceTitle);
 
     PropositionServiceDTO savePropositionService(PropositionServiceDTO propositionServiceDTO);
 
@@ -21,6 +21,8 @@ public interface PropositionServiceService {
     PropositionServiceDTO deletePropositionServiceById(Long id);
 
     PropositionServiceDTO restorePropositionServiceById(Long id);
+
+    PropositionServiceDTO removePropositionServiceById(Long id);
 
 
 }
