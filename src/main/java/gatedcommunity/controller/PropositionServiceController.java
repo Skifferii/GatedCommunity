@@ -23,7 +23,7 @@ public class PropositionServiceController {
     }
 
 
-    public void attachImage(String imageUrl, String productTitle) {
+    public void attachImage(String imageUrl, String PropositionServiceTitle) {
 
     }
 
@@ -34,39 +34,42 @@ public class PropositionServiceController {
     }
 
     @GetMapping("/{id}")
-    public PropositionServiceDTO getById(
+    public PropositionServiceDTO getPropositionServiceById(
             @Parameter(description = "The id that needs to de fetch", required = true) @PathVariable("id") long id){
 
         //  обращаемся к сервису для получения сервиса по id
-        return propositionServiceService.getById(id);
+        return propositionServiceService.getPropositionServiceById(id);
     }
 
-    @GetMapping
-    public List<PropositionServiceDTO> getByTitle(
-            @Parameter(description = "The title that needs to de fetch", required = true) @RequestParam String title){ // /offered-services?title=LightBulb
-
-
-        //  обращаемся к сервису для получения сервиса по title
-        return propositionServiceService.getByTitle(title);
+    @GetMapping()
+    public List<PropositionServiceDTO> getPropositionServiceAllOrByTitle(@RequestParam(required = false) String title){
+        if (title != null) {
+            return propositionServiceService.getPropositionServiceByTitle(title);
+        } else {
+            return propositionServiceService.getAllPropositionService();
+        }
     }
 
-    @GetMapping("/all")
-    public List<PropositionServiceDTO> getAllPropositionService(){
-        return propositionServiceService.getAllPropositionService();
+    @PutMapping("/update/{id}")
+    public PropositionServiceDTO updatePropositionService(@PathVariable("id") Long id, @RequestBody PropositionServiceDTO propositionServiceDTO){
+        return propositionServiceService.updatePropositionService(id, propositionServiceDTO);
     }
 
-    @PutMapping("/{id}")
-    public PropositionServiceDTO updatePropositionService(Long id, @RequestBody PropositionServiceDTO propositionServiceDTO){
-        return propositionServiceDTO;
-    }
-
+    // DELETE /offered-services/2
     @DeleteMapping("/{id}")
-    public PropositionServiceDTO deleteById(@PathVariable Long id){
-        return propositionServiceService.deleteById(id);
+    public PropositionServiceDTO deletePropositionServiceById(@PathVariable Long id){
+        return propositionServiceService.deletePropositionServiceById(id);
     }
 
+
+    // PUT /offered-services/restore/2
     @PutMapping("/restore/{id}")
-    public PropositionServiceDTO restoreById(@PathVariable Long id) {
-        return propositionServiceService.restoreById(id);
+    public PropositionServiceDTO restorePropositionServiceById(@PathVariable Long id) {
+        return propositionServiceService.restorePropositionServiceById(id);
+    }
+
+    @PutMapping("/remove/{id}")
+    public PropositionServiceDTO removePropositionServiceById(@PathVariable Long id) {
+        return propositionServiceService.restorePropositionServiceById(id);
     }
 }
