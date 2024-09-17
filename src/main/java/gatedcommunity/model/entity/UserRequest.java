@@ -22,7 +22,7 @@ public class UserRequest {
 
     @Schema(description = "user_request  proposition_service_id", example = "023")
     @Column(name = "proposition_service_id")
-    private long proposition_service_id;
+    private long propositionServiceId;
 
     @Schema(description = "user_request description", example = "change old lamp nach new")
     @Column(name = "description")
@@ -30,15 +30,15 @@ public class UserRequest {
 
     @Schema(description = "user_request timestamp", example = "12/12/2028")
     @Column(name = "desired_datetime")
-    private Date desired_datetime;
+    private Date desiredDateTime;
 
     @Schema(description = "user_request  user_id", example = "013")
     @Column(name = "user_id")
-    private long user_id;
+    private long userId;
 
     @Schema(description = "user_request  address_id", example = "013")
     @Column(name = "address_id")
-    private long address_id;
+    private long addressId;
 
     @Schema(description = "Is user_request available", accessMode = Schema.AccessMode.READ_ONLY)
     @Column
@@ -51,17 +51,17 @@ public class UserRequest {
     @Override
     public String toString() {
         return String.format("User_request: id - %d, description - %s, proposition_service_id - %s, desired_datetime - %s, user_id - %s, address_id - %s,  active - %s",
-                id, description, proposition_service_id, desired_datetime, user_id, address_id,   active ? "yes" : "no");
+                id, description, propositionServiceId, desiredDateTime, userId, addressId,   active ? "yes" : "no");
     }
 
     public UserRequest(Long id, String photo, long proposition_service_id, String description, Date desired_datetime, long user_id, long address_id, boolean active) {
         this.id = id;
         this.photo = photo;
-        this.proposition_service_id = proposition_service_id;
+        this.propositionServiceId = proposition_service_id;
         this.description = description;
-        this.desired_datetime = desired_datetime;
-        this.user_id = user_id;
-        this.address_id = address_id;
+        this.desiredDateTime = desired_datetime;
+        this.userId = user_id;
+        this.addressId = address_id;
         this.active = active;
     }
 
@@ -71,18 +71,18 @@ public class UserRequest {
         if (o == null || getClass() != o.getClass()) return false;
 
         UserRequest that = (UserRequest) o;
-        return proposition_service_id == that.proposition_service_id && user_id == that.user_id && address_id == that.address_id && active == that.active && Objects.equals(id, that.id) && Objects.equals(photo, that.photo) && Objects.equals(description, that.description) && Objects.equals(desired_datetime, that.desired_datetime);
+        return propositionServiceId == that.propositionServiceId && userId == that.userId && addressId == that.addressId && active == that.active && Objects.equals(id, that.id) && Objects.equals(photo, that.photo) && Objects.equals(description, that.description) && Objects.equals(desiredDateTime, that.desiredDateTime);
     }
 
     @Override
     public int hashCode() {
         int result = Objects.hashCode(id);
         result = 31 * result + Objects.hashCode(photo);
-        result = 31 * result + Long.hashCode(proposition_service_id);
+        result = 31 * result + Long.hashCode(propositionServiceId);
         result = 31 * result + Objects.hashCode(description);
-        result = 31 * result + Objects.hashCode(desired_datetime);
-        result = 31 * result + Long.hashCode(user_id);
-        result = 31 * result + Long.hashCode(address_id);
+        result = 31 * result + Objects.hashCode(desiredDateTime);
+        result = 31 * result + Long.hashCode(userId);
+        result = 31 * result + Long.hashCode(addressId);
         result = 31 * result + Boolean.hashCode(active);
         return result;
     }
@@ -103,12 +103,12 @@ public class UserRequest {
         this.photo = photo;
     }
 
-    public long getProposition_service_id() {
-        return proposition_service_id;
+    public long getPropositionServiceId() {
+        return propositionServiceId;
     }
 
-    public void setProposition_service_id(long proposition_service_id) {
-        this.proposition_service_id = proposition_service_id;
+    public void setPropositionServiceId(long propositionServiceId) {
+        this.propositionServiceId = propositionServiceId;
     }
 
     public String getDescription() {
@@ -119,28 +119,28 @@ public class UserRequest {
         this.description = description;
     }
 
-    public Date getDesired_datetime() {
-        return desired_datetime;
+    public Date getDesiredDateTime() {
+        return desiredDateTime;
     }
 
-    public void setDesired_datetime(Date desired_datetime) {
-        this.desired_datetime = desired_datetime;
+    public void setDesiredDateTime(Date desiredDateTime) {
+        this.desiredDateTime = desiredDateTime;
     }
 
-    public long getUser_id() {
-        return user_id;
+    public long getUserId() {
+        return userId;
     }
 
-    public void setUser_id(long user_id) {
-        this.user_id = user_id;
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
-    public long getAddress_id() {
-        return address_id;
+    public long getAddressId() {
+        return addressId;
     }
 
-    public void setAddress_id(long address_id) {
-        this.address_id = address_id;
+    public void setAddressId(long addressId) {
+        this.addressId = addressId;
     }
 
     public boolean isActive() {

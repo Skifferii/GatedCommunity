@@ -1,7 +1,7 @@
 package gatedcommunity.service;
 
 import gatedcommunity.exception_handling.exceptions.FirstTestException;
-import gatedcommunity.exception_handling.exceptions.ThirdTestException;
+import gatedcommunity.exception_handling.exceptions.TextException;
 import gatedcommunity.model.dto.AddressDTO;
 import gatedcommunity.model.entity.Address;
 import gatedcommunity.repository.AddressRepository;
@@ -38,7 +38,7 @@ public class AddressServiceImpl implements AddressService {
 
         Address address = addressRepository.findById(id).orElse(null);
         if (address == null) {
-            throw new ThirdTestException("Address with id " + id + " not found");
+            throw new TextException("Address with id " + id + " not found");
         }
         if (!address.isActive()) {
             System.out.println("Address not active");
