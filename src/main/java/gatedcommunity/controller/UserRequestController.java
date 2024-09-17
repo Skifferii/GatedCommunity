@@ -42,21 +42,21 @@ public class UserRequestController  {
     }
 
     public UserRequestDTO updateUserRequest(Long id, UserRequestDTO userRequestDTO) {
-        return null;
+        return userRequestService.updateUserRequest(id, userRequestDTO);
     }
 
 
     public UserRequestDTO deleteUserRequestById(Long id) {
-        return null;
+        return userRequestService.deleteUserRequestById(id);
     }
 
 
     public UserRequestDTO restoreUserRequestById(Long id) {
-        return null;
+        return userRequestService.restoreUserRequestById(id);
     }
 
 
     public UserRequestDTO removeUserRequestById(Long id) {
-        return null;
+        return userRequestService.removeUserRequestById(id);
     }
 }
