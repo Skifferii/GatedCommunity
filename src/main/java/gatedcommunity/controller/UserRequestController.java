@@ -45,17 +45,13 @@ public class UserRequestController  {
         return userRequestService.updateUserRequest(id, userRequestDTO);
     }
 
-
     public UserRequestDTO deleteUserRequestById(Long id) {
         return userRequestService.deleteUserRequestById(id);
     }
 
-
     public UserRequestDTO restoreUserRequestById(Long id) {
         return userRequestService.restoreUserRequestById(id);
     }
-
-
     public UserRequestDTO removeUserRequestById(Long id) {
         return userRequestService.removeUserRequestById(id);
     }
