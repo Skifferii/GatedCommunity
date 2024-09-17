@@ -7,6 +7,7 @@ import gatedcommunity.model.entity.UserRequest;
 import gatedcommunity.repository.UserRequestRepository;
 import gatedcommunity.service.interfaces.UserRequestService;
 import gatedcommunity.service.mapping.UserRequestMappingService;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -58,10 +59,18 @@ public class UserRequestServiceImpl implements UserRequestService {
                 .map(mapper::mapEntityToDTO)
                 .toList();
     }
-
     @Override
     public UserRequestDTO updateUserRequest(Long id, UserRequestDTO userRequestDTO) {
-        return null;
+              UserRequest userRequest = repository.findById(id).orElse(null);
+        if (userRequest != null) {
+            mapper.mapDTOToEntity( userRequestDTO);
+            userRequest.setActive(true);
+            return mapper.mapEntityToDTO(repository.save(userRequest));
+        } else {
+            // Если объект не найден, можно выбросить исключение или вернуть null
+             throw new EntityNotFoundException("User_request not found for id: " + id);
+
+        }
     }
 
     @Override
