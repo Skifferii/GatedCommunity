@@ -9,6 +9,8 @@ import gatedcommunity.service.interfaces.AddressService;
 import gatedcommunity.service.mapping.AddressMappingService;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
