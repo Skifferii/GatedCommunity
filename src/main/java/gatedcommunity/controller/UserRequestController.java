@@ -1,11 +1,9 @@
 package gatedcommunity.controller;
 
-import gatedcommunity.model.dto.PropositionServiceDTO;
 import gatedcommunity.model.dto.UserRequestDTO;
 import gatedcommunity.service.interfaces.UserRequestService;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,7 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/user-request")
 @Tag(name = "UserRequest controller", description = "Controller for operations wis UserRequest")
-public class UserRequestController  {
+public class UserRequestController {
 
     private final UserRequestService userRequestService;
 
@@ -24,12 +22,13 @@ public class UserRequestController  {
     public void attachPhoto(String photoUrl, String description) {
 
     }
+
     @PostMapping
     public UserRequestDTO saveUserRequest(UserRequestDTO userRequestDTO) {
         return userRequestService.saveUserRequest(userRequestDTO);
     }
 
-        @GetMapping("/{id}")
+    @GetMapping("/{id}")
     public UserRequestDTO getUserRequestById(
             @Parameter(description = "The id that needs to de fetch", required = true)
             @PathVariable("id") long id) {
@@ -37,7 +36,7 @@ public class UserRequestController  {
     }
 
     @GetMapping()
-        public List<UserRequestDTO> getAllUserRequest() {
+    public List<UserRequestDTO> getAllUserRequest() {
         return userRequestService.getAllUserRequest();
     }
 
