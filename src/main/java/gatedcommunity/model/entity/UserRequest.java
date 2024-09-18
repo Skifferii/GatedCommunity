@@ -1,5 +1,6 @@
 package gatedcommunity.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 
@@ -15,7 +16,7 @@ public class UserRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id; //// null / 0
+    private Long id;
 
     @Column(name = "photo")
     private String photo;
@@ -29,6 +30,7 @@ public class UserRequest {
     private String description;
 
     @Schema(description = "user_request timestamp", example = "12/12/2028")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm")
     @Column(name = "desired_datetime")
     private Date desiredDateTime;
 
