@@ -1,12 +1,9 @@
 package gatedcommunity.model.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;
 
-
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.Objects;
 
 @Schema(description = "DTO for User_Request")
@@ -21,21 +18,21 @@ UserRequestDTO {
 
     private String description;
 
-//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
+    //    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime desiredDateTime;
 
     private long userId;
 
     private long addressId;
 
-     @JsonIgnore
+    @JsonIgnore
     private boolean active; // null / false
 
 
     @Override
     public String toString() {
         return String.format("User_request: id - %d, description - %s, proposition_service_id - %s, desired_datetime - %s, user_id - %s, address_id - %s,  active - %s",
-                id, description, propositionServiceId, desiredDateTime, userId, addressId,   active ? "yes" : "no");
+                id, description, propositionServiceId, desiredDateTime, userId, addressId, active ? "yes" : "no");
     }
 
     public UserRequestDTO() {
