@@ -24,14 +24,19 @@ public class UserRequestServiceImpl implements UserRequestService {
 
 
     @Override
-    public void attachPhoto(String photoUrl, String description) {
+    public void attachPhoto(String picture, String description) {
     }
 
     @Override
     public UserRequestDTO saveUserRequest(UserRequestDTO userRequestDTO) {
         UserRequest userRequest = mapper.mapDTOToEntity(userRequestDTO);
         userRequest.setActive(true);
+        System.out.println(userRequestDTO);
+        System.out.println("s--------------33----------------3----------");
+        System.out.println(userRequest);
+
         return mapper.mapEntityToDTO(repository.save(userRequest));
+
     }
 
     @Override
