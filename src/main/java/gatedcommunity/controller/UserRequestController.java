@@ -4,6 +4,7 @@ import gatedcommunity.model.dto.UserRequestDTO;
 import gatedcommunity.service.interfaces.UserRequestService;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/user-request")
 @Tag(name = "UserRequest controller", description = "Controller for operations wis UserRequest")
-public class UserRequestController {
+public class UserRequestController  {
 
     private final UserRequestService userRequestService;
 
@@ -24,38 +25,44 @@ public class UserRequestController {
     }
 
     @PostMapping
-    public UserRequestDTO saveUserRequest(UserRequestDTO userRequestDTO) {
+    public UserRequestDTO saveUserRequest(@Valid @RequestBody UserRequestDTO userRequestDTO) {
         return userRequestService.saveUserRequest(userRequestDTO);
     }
 
     @GetMapping("/{id}")
     public UserRequestDTO getUserRequestById(
-            @Parameter(description = "The id that needs to de fetch", required = true)
+            @Parameter(description = "The ID of the user request to fetch", required = true)
             @PathVariable("id") long id) {
         return userRequestService.getUserRequestById(id);
     }
 
-    @GetMapping()
-    public List<UserRequestDTO> getAllUserRequest() {
+    @GetMapping
+    public List<UserRequestDTO> getAllUserRequests() {
         return userRequestService.getAllUserRequest();
     }
 
-    public UserRequestDTO updateUserRequest(Long id, UserRequestDTO userRequestDTO) {
+    @PutMapping("/{id}")
+    public UserRequestDTO updateUserRequest(
+            @PathVariable("id") Long id,
+            @Valid @RequestBody UserRequestDTO userRequestDTO) {
         return userRequestService.updateUserRequest(id, userRequestDTO);
     }
 
-
-    public UserRequestDTO deleteUserRequestById(Long id) {
+    @DeleteMapping("/{id}")
+    public UserRequestDTO deleteUserRequestById(@PathVariable("id") Long id) {
         return userRequestService.deleteUserRequestById(id);
     }
 
-
-    public UserRequestDTO restoreUserRequestById(Long id) {
+    @PatchMapping("/restore/{id}")
+    public UserRequestDTO restoreUserRequestById(@PathVariable("id") Long id) {
         return userRequestService.restoreUserRequestById(id);
     }
 
-
-    public UserRequestDTO removeUserRequestById(Long id) {
+    @DeleteMapping("/remove/{id}")
+    public UserRequestDTO removeUserRequestById(@PathVariable("id") Long id) {
         return userRequestService.removeUserRequestById(id);
     }
 }
+
+
+
