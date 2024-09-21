@@ -20,7 +20,7 @@ public class UserRequestController  {
         this.userRequestService = userRequestService;
     }
 
-    public void attachPhoto(String photoUrl, String description) {
+    public void attachPhoto(String picture, String description) {
 
     }
 
