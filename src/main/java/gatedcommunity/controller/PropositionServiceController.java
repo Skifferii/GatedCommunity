@@ -72,4 +72,5 @@ public class PropositionServiceController {
     public PropositionServiceDTO removePropositionServiceById(@PathVariable Long id) {
         return propositionServiceService.restorePropositionServiceById(id);
     }
+
 }
