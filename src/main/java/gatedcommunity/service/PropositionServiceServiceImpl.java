@@ -44,8 +44,7 @@ public class PropositionServiceServiceImpl implements PropositionServiceService 
             throw  new TextException("Proposition service with id" + id + " not found");
         }
         if (!propositionService.isActive()){
-            System.out.println("Proposition service not activity");
-            throw new FirstTestException("This is first Test Exception message");
+            throw new TextException("Proposition service not activity");
         }
 
         return mapper.mapEntityToDto(propositionService);
@@ -97,8 +96,11 @@ public class PropositionServiceServiceImpl implements PropositionServiceService 
         PropositionService propositionService = repository.findById(id).orElse(null);
         if (propositionService != null) {
             propositionService.setActive(true);
+            return mapper.mapEntityToDto(propositionService);
+        } else {
+            throw new TextException("");
         }
-        return mapper.mapEntityToDto(propositionService);
+
     }
 
     @Override
