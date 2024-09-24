@@ -1,15 +1,14 @@
 package gatedcommunity.security;
 
-import gatedcommunity.model.dto.UserRegisterDTO;
 import gatedcommunity.repository.UserRepository;
-import gatedcommunity.service.interfaces.UserService;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 
 @Service
-public class UserDetailsImpl implements UserService {
+public class UserDetailsImpl implements UserDetailsService {
 
     private final UserRepository userRepository;
 
@@ -23,13 +22,13 @@ public class UserDetailsImpl implements UserService {
                 () -> new UsernameNotFoundException(username));
     }
 
-    @Override
-    public void register(UserRegisterDTO registerDto) {
-
-    }
-
-    @Override
-    public String confirmationMailByCode(String code) {
-        return "";
-    }
+//    @Override
+//    public void register(UserRegisterDTO registerDto) {
+//
+//    }
+//
+//    @Override
+//    public String confirmationMailByCode(String code) {
+//        return "";
+//    }
 }

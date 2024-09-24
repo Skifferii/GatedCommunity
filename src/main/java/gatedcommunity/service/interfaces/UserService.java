@@ -15,12 +15,12 @@ public interface UserService  {
     String confirmationMailByCode(String code);
 
 
-//    User save(User user);
-//    List<User> getAllActiveUsers();
-//    User getById(long id);
-//    User update(User user);
-//    void deleteById(long id);
-//    void deleteByUsername(String username);
-//    void restoreById(long id);
-//    long getActiveUserCount();
+    User save(User user);
+    List<User> getAllActiveUsers();
+    User getById(long id);
+    User update(User user);
+    void deleteById(long id);
+    void deleteByUsername(String username);
+    void restoreById(long id);
+    long getActiveUserCount();
  }
