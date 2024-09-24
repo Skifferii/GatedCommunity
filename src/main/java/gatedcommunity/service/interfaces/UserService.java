@@ -1,13 +1,8 @@
 package gatedcommunity.service.interfaces;
 
-import gatedcommunity.model.dto.UserDTO;
 import gatedcommunity.model.dto.UserRegisterDTO;
-import gatedcommunity.model.entity.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-
-import java.util.List;
 
 public interface UserService  {
 
@@ -15,15 +10,4 @@ public interface UserService  {
 
     void register(UserRegisterDTO registerDto);
     String confirmationMailByCode(String code);
-
-
-    UserDTO saveUser(UserDTO userDTO);
-    List<UserDTO> getAllUsers();
-    UserDTO getUserById(long id);
-    UserDTO getUserByName(String name);
-    UserDTO updateUser(Long id, UserDTO userDTO);
-    UserDTO deleteUserById(Long id);
-    UserDTO restoreUserById(Long id);
-    UserDTO removeUserById(Long id);
-
- }
+}

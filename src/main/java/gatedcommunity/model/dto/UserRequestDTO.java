@@ -3,39 +3,59 @@ package gatedcommunity.model.dto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.Objects;
 
 @Schema(description = "DTO for User_Request")
-public class
-UserRequestDTO {
+public class UserRequestDTO
+//        (
+//        Long id,
+//        String photo,
+//        long propositionServiceId,
+//        String description,
+//        Date desiredDateTime,
+//        long userId,
+//        long addressId
+//)
+{
 
-    private Long id;
+//
+    private Long id; //// null / 0
 
-    private String picture;
+    private String photo;
 
     private long propositionServiceId;
 
     private String description;
 
-    //    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
-    private LocalDateTime desiredDateTime;
+    private Date desiredDateTime;
 
     private long userId;
 
     private long addressId;
 
-    @JsonIgnore
+     @JsonIgnore
     private boolean active; // null / false
 
 
     @Override
     public String toString() {
         return String.format("User_request: id - %d, description - %s, proposition_service_id - %s, desired_datetime - %s, user_id - %s, address_id - %s,  active - %s",
-                id, description, propositionServiceId, desiredDateTime, userId, addressId, active ? "yes" : "no");
+                id, description, propositionServiceId, desiredDateTime, userId, addressId,   active ? "yes" : "no");
     }
 
     public UserRequestDTO() {
+    }
+
+    public UserRequestDTO(Long id, String photo, long propositionServiceId, String description, Date desiredDateTime, long userId, long addressId, boolean active) {
+        this.id = id;
+        this.photo = photo;
+        this.propositionServiceId = propositionServiceId;
+        this.description = description;
+        this.desiredDateTime = desiredDateTime;
+        this.userId = userId;
+        this.addressId = addressId;
+        this.active = active;
     }
 
     public Long getId() {
@@ -46,12 +66,12 @@ UserRequestDTO {
         this.id = id;
     }
 
-    public String getPicture() {
-        return picture;
+    public String getPhoto() {
+        return photo;
     }
 
-    public void setPicture(String picture) {
-        this.picture = picture;
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
     public long getPropositionServiceId() {
@@ -70,11 +90,11 @@ UserRequestDTO {
         this.description = description;
     }
 
-    public LocalDateTime getDesiredDateTime() {
+    public Date getDesiredDateTime() {
         return desiredDateTime;
     }
 
-    public void setDesiredDateTime(LocalDateTime desiredDateTime) {
+    public void setDesiredDateTime(Date desiredDateTime) {
         this.desiredDateTime = desiredDateTime;
     }
 
@@ -108,13 +128,13 @@ UserRequestDTO {
         if (o == null || getClass() != o.getClass()) return false;
 
         UserRequestDTO that = (UserRequestDTO) o;
-        return propositionServiceId == that.propositionServiceId && userId == that.userId && addressId == that.addressId && active == that.active && Objects.equals(id, that.id) && Objects.equals(picture, that.picture) && Objects.equals(description, that.description) && Objects.equals(desiredDateTime, that.desiredDateTime);
+        return propositionServiceId == that.propositionServiceId && userId == that.userId && addressId == that.addressId && active == that.active && Objects.equals(id, that.id) && Objects.equals(photo, that.photo) && Objects.equals(description, that.description) && Objects.equals(desiredDateTime, that.desiredDateTime);
     }
 
     @Override
     public int hashCode() {
         int result = Objects.hashCode(id);
-        result = 31 * result + Objects.hashCode(picture);
+        result = 31 * result + Objects.hashCode(photo);
         result = 31 * result + Long.hashCode(propositionServiceId);
         result = 31 * result + Objects.hashCode(description);
         result = 31 * result + Objects.hashCode(desiredDateTime);
@@ -122,16 +142,5 @@ UserRequestDTO {
         result = 31 * result + Long.hashCode(addressId);
         result = 31 * result + Boolean.hashCode(active);
         return result;
-    }
-
-    public UserRequestDTO(Long id, String picture, long propositionServiceId, String description, LocalDateTime desiredDateTime, long userId, long addressId, boolean active) {
-        this.id = id;
-        this.picture = picture;
-        this.propositionServiceId = propositionServiceId;
-        this.description = description;
-        this.desiredDateTime = desiredDateTime;
-        this.userId = userId;
-        this.addressId = addressId;
-        this.active = active;
     }
 }

@@ -9,8 +9,6 @@ import gatedcommunity.service.interfaces.AddressService;
 import gatedcommunity.service.mapping.AddressMappingService;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -35,8 +33,9 @@ public class AddressServiceImpl implements AddressService {
 
     @Override
     public AddressDTO getAddressById(long id) {
-
         Address address = addressRepository.findById(id).orElse(null);
+
+
         if (address == null) {
             throw new TextException("Address with id " + id + " not found");
         }
