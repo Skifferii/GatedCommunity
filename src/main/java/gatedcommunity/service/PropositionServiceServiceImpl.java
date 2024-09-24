@@ -125,5 +125,4 @@ public class PropositionServiceServiceImpl implements PropositionServiceService 
         }
         return mapper.mapEntityToDto(propositionService);
     }
-
 }
