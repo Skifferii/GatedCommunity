@@ -1,12 +1,9 @@
 package gatedcommunity.controller;
 
 
-import gatedcommunity.model.dto.UserRegisterDTO;
-import gatedcommunity.model.entity.User;
+import gatedcommunity.model.dto.UserDTO;
+//import gatedcommunity.service.interfaces.UserService;
 import gatedcommunity.service.interfaces.UserService;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,54 +12,59 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
 
-//    private final UserService userService;
-//
-//    public UserController(UserService userService) {
-//        this.userService = userService;
-//    }
-//
-//    @PostMapping
-//    public User save(@RequestBody User user) {
-//        return userService.save(user);
-//    }
-//
-//    @GetMapping
-//    public List<User> getAllActiveUsers() {
-//        return userService.getAllActiveUsers();
-//    }
-//
-//    @GetMapping("/{id}")
-//    public User getById(@PathVariable long id) {
-//        return userService.getById(id);
-//    }
-//
-//    @PutMapping
-//    public User update(@RequestBody User user) {
-//        return userService.update(user);
-//    }
-//
-//    @DeleteMapping("/{id}")
-//    public void deleteById(@PathVariable long id) {
-//        userService.deleteById(id);
-//    }
-//
-//    @DeleteMapping
-//    public void deleteByUsername(@RequestParam String username) {
-//        userService.deleteByUsername(username);
-//
-//    }
-//
-//    @PutMapping("/restore/{id}")
-//    public void restoreById(long id) {
-//        userService.restoreById(id);
-//
-//    }
-//
-//    @GetMapping
-//    public long getActiveUserCount() {
-//        return userService.getActiveUserCount();
-//    }
-//
+
+    private final UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
+
+    @PostMapping
+    public UserDTO saveUser(@RequestBody UserDTO userDTO) {
+        return userService.saveUser(userDTO);
+    }
+
+    @GetMapping
+    public List<UserDTO> getAllUsers() {
+        return userService.getAllUsers();
+    }
+
+
+
+
+    //  Get /users?id=1&title=Banana
+    @GetMapping("/user")
+    public UserDTO getUserByIdOrByName(@RequestParam(required = false) Long id,
+                                       @RequestParam(required = false) String name) {
+        if (id != null) {
+            return userService.getUserById(id);
+        } else if (name != null) {
+            return userService.getUserByName(name);
+        }
+            return null;
+    }
+
+
+    @PutMapping("/update/{id}")
+    public UserDTO updateUser(@PathVariable Long id, @RequestBody UserDTO userDTO) {
+        return userService.updateUser(id, userDTO);
+    }
+
+    @DeleteMapping("/{id}")
+    public UserDTO deleteUserById(@PathVariable Long id) {
+        return userService.deleteUserById(id);
+    }
+
+    @PutMapping("/restore/{id}")
+    public UserDTO restoreUserById(@PathVariable Long id) {
+        return userService.restoreUserById(id);
+    }
+
+    @PutMapping("/remove/{id}")
+    public UserDTO removeUserById(@PathVariable Long id) {
+        return userService.removeUserById(id);
+    }
 }
 
 
