@@ -2,6 +2,7 @@ package gatedcommunity.controller;
 
 
 import gatedcommunity.model.dto.UserDTO;
+//import gatedcommunity.service.interfaces.UserService;
 import gatedcommunity.service.interfaces.UserService;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,19 +30,11 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-//    @GetMapping("/{id}")
-//    public UserDTO getUserById(@PathVariable long id) {
-//        return userService.getUserById(id);
-//    }
-//
-//    @GetMapping
-//    public UserDTO getUserByName(String name) {
-//        return null;
-//    }
+
 
 
     //  Get /users?id=1&title=Banana
-    @GetMapping
+    @GetMapping("/user")
     public UserDTO getUserByIdOrByName(@RequestParam(required = false) Long id,
                                        @RequestParam(required = false) String name) {
         if (id != null) {
