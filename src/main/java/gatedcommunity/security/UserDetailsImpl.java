@@ -8,7 +8,8 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class UserDetailsImpl implements UserDetailsService {
+public class UserDetailsImpl implements UserDetailsService{
+
 
     private final UserRepository userRepository;
 
@@ -22,13 +23,4 @@ public class UserDetailsImpl implements UserDetailsService {
                 () -> new UsernameNotFoundException(username));
     }
 
-//    @Override
-//    public void register(UserRegisterDTO registerDto) {
-//
-//    }
-//
-//    @Override
-//    public String confirmationMailByCode(String code) {
-//        return "";
-//    }
 }

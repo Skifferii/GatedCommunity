@@ -1,7 +1,8 @@
 package gatedcommunity.controller;
 
 
-import gatedcommunity.model.entity.User;
+import gatedcommunity.model.dto.UserDTO;
+//import gatedcommunity.service.interfaces.UserService;
 import gatedcommunity.service.interfaces.UserService;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,51 +12,59 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
 
+
     private final UserService userService;
 
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
+
     @PostMapping
-    public User save(@RequestBody User user) {
-        return userService.save(user);
+    public UserDTO saveUser(@RequestBody UserDTO userDTO) {
+        return userService.saveUser(userDTO);
     }
 
     @GetMapping
-    public List<User> getAllActiveUsers() {
-        return userService.getAllActiveUsers();
+    public List<UserDTO> getAllUsers() {
+        return userService.getAllUsers();
     }
 
-    @GetMapping("/{id}")
-    public User getById(@PathVariable long id) {
-        return userService.getById(id);
+
+
+
+    //  Get /users?id=1&title=Banana
+    @GetMapping("/user")
+    public UserDTO getUserByIdOrByName(@RequestParam(required = false) Long id,
+                                       @RequestParam(required = false) String name) {
+        if (id != null) {
+            return userService.getUserById(id);
+        } else if (name != null) {
+            return userService.getUserByName(name);
+        }
+            return null;
     }
 
-    @PutMapping
-    public User update(@RequestBody User user) {
-        return userService.update(user);
+
+    @PutMapping("/update/{id}")
+    public UserDTO updateUser(@PathVariable Long id, @RequestBody UserDTO userDTO) {
+        return userService.updateUser(id, userDTO);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteById(@PathVariable long id) {
-        userService.deleteById(id);
-    }
-
-    @DeleteMapping
-    public void deleteByUsername(@RequestParam String username) {
-        userService.deleteByUsername(username);
-
+    public UserDTO deleteUserById(@PathVariable Long id) {
+        return userService.deleteUserById(id);
     }
 
     @PutMapping("/restore/{id}")
-    public void restoreById(long id) {
-        userService.restoreById(id);
-
+    public UserDTO restoreUserById(@PathVariable Long id) {
+        return userService.restoreUserById(id);
     }
 
-
-
+    @PutMapping("/remove/{id}")
+    public UserDTO removeUserById(@PathVariable Long id) {
+        return userService.removeUserById(id);
+    }
 }
 
 
