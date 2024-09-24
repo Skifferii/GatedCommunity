@@ -4,9 +4,11 @@ import gatedcommunity.exception_handling.exceptions.FirstTestException;
 import gatedcommunity.exception_handling.exceptions.TextException;
 import gatedcommunity.model.dto.PropositionServiceDTO;
 import gatedcommunity.model.entity.PropositionService;
+import gatedcommunity.model.entity.UserRequest;
 import gatedcommunity.repository.PropositionServiceRepository;
 import gatedcommunity.service.interfaces.PropositionServiceService;
 import gatedcommunity.service.mapping.PropositionServiceMappingService;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
@@ -44,8 +46,7 @@ public class PropositionServiceServiceImpl implements PropositionServiceService 
             throw  new TextException("Proposition service with id" + id + " not found");
         }
         if (!propositionService.isActive()){
-            System.out.println("Proposition service not activity");
-            throw new FirstTestException("This is first Test Exception message");
+            throw new TextException("Proposition service not activity");
         }
 
         return mapper.mapEntityToDto(propositionService);
@@ -72,15 +73,27 @@ public class PropositionServiceServiceImpl implements PropositionServiceService 
 
     @Override
     public PropositionServiceDTO updatePropositionService(Long id, PropositionServiceDTO propositionServiceDTO) {
-        PropositionService propositionService = repository.findById(id).orElse(null);
-        mapper.mapDtoToEntity(propositionServiceDTO);
-        propositionService.setTitle(propositionServiceDTO.getTitle());
-        propositionService.setDescription(propositionServiceDTO.getDescription());
-        propositionService.setImage(propositionServiceDTO.getImage());
+        PropositionService propositionService = repository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Proposition service not found for id: " + id));
+
+        mapper.mapDTOToEntityUpdate(propositionServiceDTO, propositionService);  // Use mapper for update Entity
+
         propositionService.setActive(true);
 
         return mapper.mapEntityToDto(repository.save(propositionService));
     }
+
+//    @Override
+//    public PropositionServiceDTO updatePropositionService(Long id, PropositionServiceDTO propositionServiceDTO) {
+//        PropositionService propositionService = repository.findById(id).orElse(null);
+//        mapper.mapDtoToEntity(propositionServiceDTO);
+//        propositionService.setTitle(propositionServiceDTO.getTitle());
+//        propositionService.setDescription(propositionServiceDTO.getDescription());
+//        propositionService.setImage(propositionServiceDTO.getImage());
+//        propositionService.setActive(true);
+//
+//        return mapper.mapEntityToDto(repository.save(propositionService));
+//    }
 
     @Override
     public PropositionServiceDTO deletePropositionServiceById(Long id) {
@@ -97,8 +110,11 @@ public class PropositionServiceServiceImpl implements PropositionServiceService 
         PropositionService propositionService = repository.findById(id).orElse(null);
         if (propositionService != null) {
             propositionService.setActive(true);
+            return mapper.mapEntityToDto(propositionService);
+        } else {
+            throw new TextException("");
         }
-        return mapper.mapEntityToDto(propositionService);
+
     }
 
     @Override
