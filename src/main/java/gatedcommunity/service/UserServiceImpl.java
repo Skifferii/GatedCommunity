@@ -49,6 +49,7 @@ public class UserServiceImpl implements UserService {
         User user = mapping.mapDTOToEntity(userDTO);
         user.setActive(true);
         return mapping.mapEntityToDTO(repository.save(user));
+
     }
 
 
