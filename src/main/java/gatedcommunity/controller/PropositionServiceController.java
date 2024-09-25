@@ -28,7 +28,7 @@ public class PropositionServiceController {
     }
 
     @PostMapping
-    public PropositionServiceDTO savePropositionService(@Valid @RequestBody PropositionServiceDTO propositionServiceDTO){
+    public PropositionServiceDTO savePropositionService(@RequestBody PropositionServiceDTO propositionServiceDTO){
         //  обращаемся к сервису для сохранения сервиса
         return propositionServiceService.savePropositionService(propositionServiceDTO);
     }
@@ -72,4 +72,5 @@ public class PropositionServiceController {
     public PropositionServiceDTO removePropositionServiceById(@PathVariable Long id) {
         return propositionServiceService.restorePropositionServiceById(id);
     }
+
 }
