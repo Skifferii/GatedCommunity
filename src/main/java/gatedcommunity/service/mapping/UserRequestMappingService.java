@@ -11,8 +11,10 @@ public interface UserRequestMappingService {
 
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "active", constant = "true")
+    @Mapping(target = "photo", ignore = true)
    UserRequest mapDTOToEntity(UserRequestDTO userRequestDTO);
    UserRequestDTO mapEntityToDTO(UserRequest entity);
+
 
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "active", ignore = true)

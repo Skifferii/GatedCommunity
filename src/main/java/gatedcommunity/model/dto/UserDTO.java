@@ -24,10 +24,7 @@ public class UserDTO {
                 id, userName, firstName, lastName, addresses == null ? "[]" : addresses, roles == null ? "[]" : roles, active ? "yes" : "no");
     }
 
-    public UserDTO(Long id, String userName, String password,
-                   String firstName, String lastName,
-                   String email, Set<Address> addresses,
-                   Set<Role> roles, boolean active) {
+    public UserDTO(Long id, String userName, String password, String firstName, String lastName, String email, Set<Address> addresses, Set<Role> roles, boolean active) {
         this.id = id;
         this.userName = userName;
         this.password = password;
@@ -47,20 +44,12 @@ public class UserDTO {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         UserDTO userDTO = (UserDTO) o;
-        return active == userDTO.active && Objects.equals(id, userDTO.id)
-                && Objects.equals(userName, userDTO.userName)
-                && Objects.equals(password, userDTO.password)
-                && Objects.equals(firstName, userDTO.firstName)
-                && Objects.equals(lastName, userDTO.lastName)
-                && Objects.equals(email, userDTO.email)
-                && Objects.equals(addresses, userDTO.addresses)
-                && Objects.equals(roles, userDTO.roles);
+        return active == userDTO.active && Objects.equals(id, userDTO.id) && Objects.equals(userName, userDTO.userName) && Objects.equals(password, userDTO.password) && Objects.equals(firstName, userDTO.firstName) && Objects.equals(lastName, userDTO.lastName) && Objects.equals(email, userDTO.email) && Objects.equals(addresses, userDTO.addresses) && Objects.equals(roles, userDTO.roles);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, userName, password, firstName,
-                lastName, email, addresses, roles, active);
+        return Objects.hash(id, userName, password, firstName, lastName, email, addresses, roles, active);
     }
 
     public Long getId() {

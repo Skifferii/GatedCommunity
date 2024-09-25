@@ -11,6 +11,7 @@ import java.util.Objects;
 import java.util.Set;
 
 
+
 @Entity
 @Table(name = "user")
 public class User implements UserDetails {
@@ -41,16 +42,16 @@ public class User implements UserDetails {
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_address",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "address_id")
+            joinColumns = @JoinColumn (name = "user_id"),
+            inverseJoinColumns = @JoinColumn (name = "address_id")
     )
     private Set<Address> addresses;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_role",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id")
+            joinColumns = @JoinColumn (name = "user_id"),
+            inverseJoinColumns = @JoinColumn (name = "role_id")
     )
     private Set<Role> roles;
 
@@ -60,10 +61,7 @@ public class User implements UserDetails {
                 id, userName, firstName, lastName, addresses == null ? "[]" : addresses, roles == null ? "[]" : roles, active ? "yes" : "no");
     }
 
-    public User(Long id, String userName, String password,
-                String firstName, String lastName,
-                String email, boolean active,
-                Set<Address> addresses, Set<Role> roles) {
+    public User(Long id, String userName, String password, String firstName, String lastName, String email, boolean active, Set<Address> addresses, Set<Role> roles) {
         this.id = id;
         this.userName = userName;
         this.password = password;
@@ -83,20 +81,12 @@ public class User implements UserDetails {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return active == user.active && Objects.equals(id, user.id)
-                && Objects.equals(userName, user.userName)
-                && Objects.equals(password, user.password)
-                && Objects.equals(firstName, user.firstName)
-                && Objects.equals(lastName, user.lastName)
-                && Objects.equals(email, user.email)
-                && Objects.equals(addresses, user.addresses)
-                && Objects.equals(roles, user.roles);
+        return active == user.active && Objects.equals(id, user.id) && Objects.equals(userName, user.userName) && Objects.equals(password, user.password) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(email, user.email) && Objects.equals(addresses, user.addresses) && Objects.equals(roles, user.roles);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, userName, password,
-                firstName, lastName, email, active, addresses, roles);
+        return Objects.hash(id, userName, password, firstName, lastName, email, active, addresses, roles);
     }
 
     public Long getId() {
@@ -117,7 +107,7 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return roles;
+        return List.of();
     }
 
     @Override
@@ -127,7 +117,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return userName;
+        return "";
     }
 
     public void setPassword(String password) {
@@ -181,8 +171,4 @@ public class User implements UserDetails {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
-
-//        public static void main(String[] args) {
-//        System.out.println(new BCryptPasswordEncoder().encode("12345"));
-//    }
 }
