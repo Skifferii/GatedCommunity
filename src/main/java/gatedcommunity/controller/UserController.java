@@ -4,9 +4,10 @@ package gatedcommunity.controller;
 import gatedcommunity.model.dto.UserDTO;
 //import gatedcommunity.service.interfaces.UserService;
 import gatedcommunity.service.interfaces.UserService;
+import io.swagger.v3.oas.annotations.Parameter;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/users")
@@ -25,26 +26,21 @@ public class UserController {
         return userService.saveUser(userDTO);
     }
 
-    @GetMapping
-    public List<UserDTO> getAllUsers() {
-        return userService.getAllUsers();
+    @GetMapping("/{id}")
+    public UserDTO getUserById(
+            @Parameter(description = "The id that needs to de fetch", required = true) @PathVariable("id") long id){
+
+        return userService.getUserById(id);
     }
 
-
-
-
-    //  Get /users?id=1&title=Banana
-    @GetMapping("/user")
-    public UserDTO getUserByIdOrByName(@RequestParam(required = false) Long id,
-                                       @RequestParam(required = false) String name) {
-        if (id != null) {
-            return userService.getUserById(id);
-        } else if (name != null) {
-            return userService.getUserByName(name);
+    @GetMapping("/resoult{name}")
+    public UserDTO getUserAllOrByTitle(@RequestParam(required = false) String name){
+        if (name != null) {
+            return userService.getUserByName(name).get(0);
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found.");
         }
-            return null;
     }
-
 
     @PutMapping("/update/{id}")
     public UserDTO updateUser(@PathVariable Long id, @RequestBody UserDTO userDTO) {

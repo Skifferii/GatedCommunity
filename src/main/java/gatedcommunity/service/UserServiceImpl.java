@@ -1,5 +1,6 @@
 package gatedcommunity.service;
 
+import gatedcommunity.exception_handling.exceptions.TextException;
 import gatedcommunity.model.dto.UserDTO;
 import gatedcommunity.model.dto.UserRegisterDTO;
 import gatedcommunity.model.entity.User;
@@ -52,7 +53,6 @@ public class UserServiceImpl implements UserService {
 
     }
 
-
     @Override
     public List<UserDTO> getAllUsers() {
         return repository.findAll().stream()
@@ -63,14 +63,22 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDTO getUserById(long id) {
-        return repository.findById(id)
-                .map(mapping::mapEntityToDTO)
-                .orElseThrow(() -> new RuntimeException("The user with the ID was not found: " + id));
+        User user = repository.findById(id).orElse(null);
+        if (user == null) {
+            throw new TextException("User service with id" + id + " not found");
+        }
+        if (!user.isActive()) {
+            throw new TextException("User with id" + id + " not activity");
+        }
+        return mapping.mapEntityToDTO(user);
     }
 
     @Override
-    public UserDTO getUserByName(String name) {
-        return null;
+    public List<UserDTO> getUserByName(String username) {
+        return repository.findUserByUserName(username).stream().
+                filter(User::isActive).
+                map(mapping::mapEntityToDTO)
+                .toList();
     }
 
     @Override

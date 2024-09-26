@@ -1,9 +1,6 @@
 package gatedcommunity.service.interfaces;
 
 import gatedcommunity.model.dto.UserRequestDTO;
-import gatedcommunity.model.dto.PropositionServiceDTO;
-import gatedcommunity.model.dto.UserRequestDTO;
-
 import java.util.List;
 
 public interface  UserRequestService {

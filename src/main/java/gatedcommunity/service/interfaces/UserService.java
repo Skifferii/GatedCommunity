@@ -20,10 +20,10 @@ public interface UserService  {
     UserDTO saveUser(UserDTO userDTO);
     List<UserDTO> getAllUsers();
     UserDTO getUserById(long id);
-    UserDTO getUserByName(String name);
+    List<UserDTO> getUserByName(String name);
     UserDTO updateUser(Long id, UserDTO userDTO);
     UserDTO deleteUserById(Long id);
     UserDTO restoreUserById(Long id);
     UserDTO removeUserById(Long id);
 
- }
+}
