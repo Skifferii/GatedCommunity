@@ -2,24 +2,25 @@ package gatedcommunity.service;
 
 import gatedcommunity.exception_handling.exceptions.TextException;
 import gatedcommunity.model.dto.UserRequestDTO;
-import gatedcommunity.model.dto.UserResponseDTO;
 import gatedcommunity.model.entity.UserRequest;
 import gatedcommunity.repository.UserRequestRepository;
+import gatedcommunity.service.interfaces.PropositionServiceService;
 import gatedcommunity.service.interfaces.UserRequestService;
 import gatedcommunity.service.mapping.UserRequestMappingService;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
 @Service
 public class UserRequestServiceImpl implements UserRequestService {
 
+    private final PropositionServiceService propositionService;
     private final UserRequestRepository repository;
     private final UserRequestMappingService mapper;
 
-    public UserRequestServiceImpl(UserRequestRepository repository, UserRequestMappingService mapper) {
+    public UserRequestServiceImpl(PropositionServiceService propositionService, UserRequestRepository repository, UserRequestMappingService mapper) {
+        this.propositionService = propositionService;
         this.repository = repository;
         this.mapper = mapper;
     }
@@ -52,34 +53,25 @@ public class UserRequestServiceImpl implements UserRequestService {
         return mapper.mapEntityToDTO(userRequest);
     }
 
+
     @Override
     public List<UserRequestDTO> getAllUserRequest() {
+        // Получаем список всех запросов пользователей и преобразуем их в DTO
         return repository.findAll().stream()
-                .filter(UserRequest::isActive)
-                .map(mapper::mapEntityToDTO)
+                .filter(UserRequest::isActive)  // Фильтруем только активные запросы
+                .map(mapper::mapEntityToDTO)  // Преобразуем сущности в DTO
+                .map(userRequestDTO -> {
+                    // Получаем название сервиса по propositionServiceId
+                    String propositionServiceTitle = propositionService
+                            .getPropositionServiceById(userRequestDTO.getPropositionServiceId())
+                            .getTitle();
+                    // Устанавливаем название сервиса в DTO
+                    userRequestDTO.setPropositionServiceTitle(propositionServiceTitle);
+
+                    return userRequestDTO;  // Возвращаем модифицированный объект
+                })
                 .toList();
     }
-//    @GetMapping
-//    public List<UserResponseDTO> getAllUserRequests() {
-//        List<UserRequestDTO> userRequestDTOList = userRequestService.getAllUserRequest();
-//        return userRequestDTOList.stream()
-//                .map(userRequestDTO -> {
-//                    UserResponseDTO userResponseDTO = new UserResponseDTO();
-//                    userResponseDTO.setId(userRequestDTO.getId());
-//                    userResponseDTO.setDescription(userRequestDTO.getDescription());
-//                    userResponseDTO.setActive(userRequestDTO.isActive());
-//                    userResponseDTO.setAddressId(userRequestDTO.getAddressId());
-//                    userResponseDTO.setDesiredDateTime(userRequestDTO.getDesiredDateTime());
-//                    userResponseDTO.setUserId(userRequestDTO.getUserId());
-//                    userResponseDTO.setPropositionServiceId(userRequestDTO.getPropositionServiceId());
-//                    String propositionServiceTitle = propositionService.getPropositionServiceById(userRequestDTO.getPropositionServiceId()).getTitle();
-//                    userResponseDTO.setPropositionServiceTitle(propositionServiceTitle);
-//                    return userResponseDTO;
-//                })
-//                .toList();
-//    }
-
-
 
     @Override
     public UserRequestDTO deleteUserRequestById(Long id) {
@@ -120,17 +112,5 @@ public class UserRequestServiceImpl implements UserRequestService {
 
         return mapper.mapEntityToDTO(repository.save(userRequest));
 
-        //        UserRequest userRequest = repository.findById(id)
-//        .orElseThrow(() -> new EntityNotFoundException("User request not found for id: " + id));//
-//            mapper.mapDTOToEntity(userRequestDTO);
-//            userRequest.setUserId(userRequestDTO.getUserId());
-//            userRequest.setDescription(userRequestDTO.getDescription());
-//            userRequest.setAddressId(userRequestDTO.getAddressId());
-//            userRequest.setPropositionServiceId(userRequestDTO.getPropositionServiceId());
-//            userRequest.setDesiredDateTime(userRequestDTO.getDesiredDateTime());
-//            userRequest.setPhoto(userRequestDTO.getPhoto());
-//            userRequest.setActive(true);
-//            return mapper.mapEntityToDTO(repository.save(userRequest));
-//
     }
 }
