@@ -60,7 +60,7 @@ public class UserServiceImpl implements UserService {
     public UserDTO getUserById(long id) {
         return repository.findById(id)
                 .map(mapper::mapEntityToDTO)
-                .orElseThrow(() -> new RuntimeException("The user with the ID was not found: " + id));
+                .orElseThrow(() -> new RuntimeException("The user  with the ID was not found: " + id));
     }
 
     @Override
