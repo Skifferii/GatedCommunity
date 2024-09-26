@@ -1,5 +1,6 @@
 package gatedcommunity.service;
 
+import gatedcommunity.exception_handling.exceptions.TextException;
 import gatedcommunity.model.dto.UserDTO;
 import gatedcommunity.model.dto.UserRegisterDTO;
 import gatedcommunity.model.entity.User;
@@ -17,12 +18,13 @@ import java.util.stream.Collectors;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository repository;
-    private final UserMappingService mapper;
+    private final UserMappingService mapping;
 
-    public UserServiceImpl(UserRepository repository, UserMappingService mapper) {
+    public UserServiceImpl(UserRepository repository, UserMappingService mapping) {
         this.repository = repository;
-        this.mapper = mapper;
+        this.mapping = mapping;
     }
+
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -30,84 +32,72 @@ public class UserServiceImpl implements UserService {
                 .orElseThrow(() -> new UsernameNotFoundException("User not found: " + username));
     }
 
+
     @Override
     public void register(UserRegisterDTO registerDTO) {
-        User user = mapper.mapRegisterDTOToEntity(registerDTO);
-        user.setActive(true); // или false, в зависимости от логики
-        repository.save(user);
+
     }
+
 
     @Override
     public String confirmationMailByCode(String code) {
         return "Email successfully confirmed!";
     }
 
+
     @Override
     public UserDTO saveUser(UserDTO userDTO) {
-        User user = mapper.mapDTOToEntity(userDTO);
+        User user = mapping.mapDTOToEntity(userDTO);
         user.setActive(true);
-        return mapper.mapEntityToDTO(repository.save(user));
+        return mapping.mapEntityToDTO(repository.save(user));
 
     }
 
     @Override
     public List<UserDTO> getAllUsers() {
         return repository.findAll().stream()
-                .map(mapper::mapEntityToDTO)
+                .map(mapping::mapEntityToDTO)
                 .collect(Collectors.toList());
     }
 
+
     @Override
     public UserDTO getUserById(long id) {
-        return repository.findById(id)
-                .map(mapper::mapEntityToDTO)
-                .orElseThrow(() -> new RuntimeException("The user with the ID was not found: " + id));
+        User user = repository.findById(id).orElse(null);
+        if (user == null) {
+            throw new TextException("User service with id" + id + " not found");
+        }
+        if (!user.isActive()) {
+            throw new TextException("User with id" + id + " not activity");
+        }
+        return mapping.mapEntityToDTO(user);
     }
 
     @Override
-    public UserDTO getUserByName(String name) {
-        return repository.findUserByUserName(name)
-                .map(mapper::mapEntityToDTO)
-                .orElseThrow(() -> new RuntimeException("User not found: " + name));
+    public List<UserDTO> getUserByName(String username) {
+        return repository.findUserByUserName(username).stream().
+                filter(User::isActive).
+                map(mapping::mapEntityToDTO)
+                .toList();
     }
 
     @Override
     public UserDTO updateUser(Long id, UserDTO userDTO) {
-        User user = repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not found: " + id));
-
-        mapper.mapDTOToEntityUpdate(userDTO, user);
-        user.setActive(true);
-        return mapper.mapEntityToDTO(repository.save(user));
+        return null;
     }
 
     @Override
     public UserDTO deleteUserById(Long id) {
-        User user = repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not found: " + id));
-
-        repository.deleteById(id);
-        return mapper.mapEntityToDTO(user);
+        return null;
     }
 
     @Override
     public UserDTO restoreUserById(Long id) {
-        User user = repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not found: " + id));
-
-        user.setActive(true);
-        return mapper.mapEntityToDTO(repository.save(user));
+        return null;
     }
 
     @Override
     public UserDTO removeUserById(Long id) {
-        User user = repository.findById(id).orElseThrow(() -> new RuntimeException("User not found: " + id));
-        user.setActive(false);
-        return mapper.mapEntityToDTO(repository.save(user));
-
+        return null;
     }
-
 }
-
-
-

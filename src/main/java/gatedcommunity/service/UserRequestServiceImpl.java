@@ -2,12 +2,14 @@ package gatedcommunity.service;
 
 import gatedcommunity.exception_handling.exceptions.TextException;
 import gatedcommunity.model.dto.UserRequestDTO;
+import gatedcommunity.model.dto.UserResponseDTO;
 import gatedcommunity.model.entity.UserRequest;
 import gatedcommunity.repository.UserRequestRepository;
 import gatedcommunity.service.interfaces.UserRequestService;
 import gatedcommunity.service.mapping.UserRequestMappingService;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
@@ -57,6 +59,27 @@ public class UserRequestServiceImpl implements UserRequestService {
                 .map(mapper::mapEntityToDTO)
                 .toList();
     }
+//    @GetMapping
+//    public List<UserResponseDTO> getAllUserRequests() {
+//        List<UserRequestDTO> userRequestDTOList = userRequestService.getAllUserRequest();
+//        return userRequestDTOList.stream()
+//                .map(userRequestDTO -> {
+//                    UserResponseDTO userResponseDTO = new UserResponseDTO();
+//                    userResponseDTO.setId(userRequestDTO.getId());
+//                    userResponseDTO.setDescription(userRequestDTO.getDescription());
+//                    userResponseDTO.setActive(userRequestDTO.isActive());
+//                    userResponseDTO.setAddressId(userRequestDTO.getAddressId());
+//                    userResponseDTO.setDesiredDateTime(userRequestDTO.getDesiredDateTime());
+//                    userResponseDTO.setUserId(userRequestDTO.getUserId());
+//                    userResponseDTO.setPropositionServiceId(userRequestDTO.getPropositionServiceId());
+//                    String propositionServiceTitle = propositionService.getPropositionServiceById(userRequestDTO.getPropositionServiceId()).getTitle();
+//                    userResponseDTO.setPropositionServiceTitle(propositionServiceTitle);
+//                    return userResponseDTO;
+//                })
+//                .toList();
+//    }
+
+
 
     @Override
     public UserRequestDTO deleteUserRequestById(Long id) {
