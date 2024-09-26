@@ -41,7 +41,6 @@ public class UserRequestController  {
             @PathVariable("id") long id) {
         return userRequestService.getUserRequestById(id);
     }
-
 //    @GetMapping
 //    public List<UserRequestDTO> getAllUserRequests() {
 //        return   userRequestService.getAllUserRequest();}
@@ -64,7 +63,6 @@ public class UserRequestController  {
                 })
                 .toList();
     }
-
     @PutMapping("/{id}")
     public UserRequestDTO updateUserRequest(
             @PathVariable("id") Long id,
