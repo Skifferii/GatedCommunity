@@ -45,7 +45,6 @@ public class UserRequestController  {
 //    @GetMapping
 //    public List<UserRequestDTO> getAllUserRequests() {
 //        return   userRequestService.getAllUserRequest();}
-//4444
     @GetMapping
     public List<UserResponseDTO> getAllUserRequests() {
         List<UserRequestDTO> userRequestDTOList = userRequestService.getAllUserRequest();
@@ -64,9 +63,7 @@ public class UserRequestController  {
                     return userResponseDTO;
                 })
                 .toList();
-
     }
-
 
     @PutMapping("/{id}")
     public UserRequestDTO updateUserRequest(
