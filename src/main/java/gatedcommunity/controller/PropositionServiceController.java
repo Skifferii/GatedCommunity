@@ -28,11 +28,11 @@ public class PropositionServiceController {
     }
 
     @PostMapping
-    public PropositionServiceDTO savePropositionService(@RequestBody PropositionServiceDTO propositionServiceDTO){
+    public PropositionServiceDTO savePropositionService(@Valid @RequestBody PropositionServiceDTO propositionServiceDTO){
         //  обращаемся к сервису для сохранения сервиса
         return propositionServiceService.savePropositionService(propositionServiceDTO);
     }
-
+    
     @GetMapping("/{id}")
     public PropositionServiceDTO getPropositionServiceById(
             @Parameter(description = "The id that needs to de fetch", required = true) @PathVariable("id") long id){
