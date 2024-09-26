@@ -32,17 +32,9 @@ public class UserController {
 
 
 
-
-    //  Get /users?id=1&title=Banana
-    @GetMapping("/user")
-    public UserDTO getUserByIdOrByName(@RequestParam(required = false) Long id,
-                                       @RequestParam(required = false) String name) {
-        if (id != null) {
-            return userService.getUserById(id);
-        } else if (name != null) {
-            return userService.getUserByName(name);
-        }
-            return null;
+    @GetMapping("/{id}")
+    public UserDTO getUserById(@PathVariable(required = false) Long id) {
+        return userService.getUserById(id);
     }
 
 
