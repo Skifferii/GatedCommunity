@@ -2,9 +2,11 @@ package gatedcommunity.controller;
 
 
 import gatedcommunity.model.dto.UserDTO;
-//import gatedcommunity.service.interfaces.UserService;
 import gatedcommunity.service.interfaces.UserService;
+import io.swagger.v3.oas.annotations.Parameter;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -25,17 +27,29 @@ public class UserController {
         return userService.saveUser(userDTO);
     }
 
+    @GetMapping("/{id}")
+    public UserDTO getUserById(
+            @Parameter(description = "The id that needs to de fetch", required = true) @PathVariable("id") long id){
+
+        //  обращаемся к сервису для получения сервиса по id
+        return userService.getUserById(id);
+    }
+
     @GetMapping
     public List<UserDTO> getAllUsers() {
         return userService.getAllUsers();
     }
 
 
-
-    @GetMapping("/{id}")
-    public UserDTO getUserById(@PathVariable(required = false) Long id) {
-        return userService.getUserById(id);
+    @GetMapping("/results")
+    public UserDTO getUserByName(@RequestParam(required = false) String name){
+        if (name != null) {
+            return userService.getUserByName(name);
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found.");
+        }
     }
+
 
 
     @PutMapping("/update/{id}")

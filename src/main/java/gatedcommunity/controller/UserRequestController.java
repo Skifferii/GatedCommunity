@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/user-request")
 @Tag(name = "UserRequest controller", description = "Controller for operations wis UserRequest")
-public class UserRequestController  {
+public class UserRequestController {
 
     private final UserRequestService userRequestService;
 
@@ -21,7 +21,6 @@ public class UserRequestController  {
     }
 
     public void attachPhoto(String picture, String description) {
-
     }
 
     @PostMapping
