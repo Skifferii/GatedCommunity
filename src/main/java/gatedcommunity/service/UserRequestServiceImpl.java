@@ -56,20 +56,9 @@ public class UserRequestServiceImpl implements UserRequestService {
 
     @Override
     public List<UserRequestDTO> getAllUserRequest() {
-        // Получаем список всех запросов пользователей и преобразуем их в DTO
         return repository.findAll().stream()
-                .filter(UserRequest::isActive)  // Фильтруем только активные запросы
-                .map(mapper::mapEntityToDTO)  // Преобразуем сущности в DTO
-                .map(userRequestDTO -> {
-                    // Получаем название сервиса по propositionServiceId
-                    String propositionServiceTitle = propositionService
-                            .getPropositionServiceById(userRequestDTO.getPropositionServiceId())
-                            .getTitle();
-                    // Устанавливаем название сервиса в DTO
-                    userRequestDTO.setPropositionServiceTitle(propositionServiceTitle);
-
-                    return userRequestDTO;  // Возвращаем модифицированный объект
-                })
+                .filter(UserRequest::isActive)
+                .map(mapper::mapEntityToDTO)
                 .toList();
     }
 
