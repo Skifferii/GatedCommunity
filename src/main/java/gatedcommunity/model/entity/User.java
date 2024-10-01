@@ -5,7 +5,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -116,7 +115,7 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of();
+        return roles;
     }
 
     @Override
@@ -126,7 +125,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return "";
+        return userName;
     }
 
     public void setPassword(String password) {
@@ -180,4 +179,8 @@ public class User implements UserDetails {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+
+//        public static void main(String[] args) {
+//        System.out.println(new BCryptPasswordEncoder().encode("123"));
+//    }
 }
