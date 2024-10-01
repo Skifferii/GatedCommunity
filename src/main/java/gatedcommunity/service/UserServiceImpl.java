@@ -6,6 +6,7 @@ import gatedcommunity.model.entity.ConfirmationCode;
 import gatedcommunity.model.entity.User;
 import gatedcommunity.repository.UserRepository;
 import gatedcommunity.service.interfaces.ConfirmationCodeService;
+import gatedcommunity.service.interfaces.EmailService;
 import gatedcommunity.service.interfaces.RoleService;
 import gatedcommunity.service.interfaces.UserService;
 import gatedcommunity.service.mapping.UserMappingService;
@@ -27,13 +28,15 @@ public class UserServiceImpl implements UserService {
     private final UserRepository repository;
     private final BCryptPasswordEncoder passwordEncoder;
     private final RoleService roleService;
+    private final EmailService emailService;
     private final UserMappingService mapper;
     private final ConfirmationCodeService confirmationCodeService;
 
-    public UserServiceImpl(UserRepository repository, BCryptPasswordEncoder passwordEncoder, RoleService roleService, UserMappingService mapper, ConfirmationCodeService confirmationCodeService) {
+    public UserServiceImpl(UserRepository repository, BCryptPasswordEncoder passwordEncoder, RoleService roleService, EmailService emailService, UserMappingService mapper, ConfirmationCodeService confirmationCodeService) {
         this.repository = repository;
         this.passwordEncoder = passwordEncoder;
         this.roleService = roleService;
+        this.emailService = emailService;
         this.mapper = mapper;
         this.confirmationCodeService = confirmationCodeService;
     }
@@ -61,9 +64,14 @@ public class UserServiceImpl implements UserService {
         user.setPassword(passwordEncoder.encode(registerDTO.password()));
 
         user.setActive(false);
+
+        repository.save(user);
+
+        emailService.sendConfirmationEmail(user);
+
     }
 
-    @org.springframework.transaction.annotation.Transactional
+    @Transactional
     @Override
     public String confirmationMailByCode(String code) {
         ConfirmationCode confirmationCode = confirmationCodeService.findByCode(code).orElseThrow(
