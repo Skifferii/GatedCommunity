@@ -1,7 +1,6 @@
 package gatedcommunity.security.service;
 
 import gatedcommunity.model.entity.Role;
-import gatedcommunity.model.entity.User;
 import gatedcommunity.repository.RoleRepository;
 import gatedcommunity.security.AuthInfo;
 import io.jsonwebtoken.Claims;
@@ -33,13 +32,9 @@ public class TokenService {
     }
 
     public String generateAccessToken(UserDetails user) {
-        // machen ende Zeit Token
-        Instant now = Instant.now(); /// ZEIT JETZT
-        Instant expiration = now.plus(1, ChronoUnit.DAYS); // Plus 1 Tag
-
-        Date expriationDate = Date.from(expiration);  // convert Instant -> date
-
-
+        Instant now = Instant.now();
+        Instant expiration = now.plus(1, ChronoUnit.DAYS);
+        Date expriationDate = Date.from(expiration);
         return Jwts.builder()
                 .subject(user.getUsername())
                 .expiration(expriationDate)
@@ -50,13 +45,9 @@ public class TokenService {
     }
 
     public String generateRefreshToken(UserDetails user) {
-        // machen ende Zeit Token
-        Instant now = Instant.now(); /// ZEIT JETZT
-        Instant expiration = now.plus(10, ChronoUnit.DAYS); // Plus 1 Tag
-
-        Date expriationDate = Date.from(expiration);  // convert Instant -> date
-
-
+        Instant now = Instant.now();
+        Instant expiration = now.plus(10, ChronoUnit.DAYS);
+        Date expriationDate = Date.from(expiration);
         return Jwts.builder()
                 .subject(user.getUsername())
                 .expiration(expriationDate)
@@ -65,7 +56,7 @@ public class TokenService {
     }
 
 
-    public boolean validateAccesToken(String accessToken) {
+    public boolean validateAccessToken(String accessToken) {
         return validateToken(accessToken, accessKey);
     }
 
@@ -108,14 +99,11 @@ public class TokenService {
         String username = claims.getSubject();
 
         @SuppressWarnings("unchecked")
-        List <Map<String, String>> roles = (List <Map<String, String>>)claims.get("roles", List.class);
+        List <Map<String, String>> roles = (List<Map<String, String>>) claims.get("roles", List.class);
 
         Set<Role> authorities = roles.stream()
                 .map(m ->m.get("authority"))
-                .map(s -> roleRepository.findByTitle(s).orElseThrow( ()->{
-                    System.err.println("ROLE NOT FOUND " +s);
-                    return new RuntimeException("ROLE NOT FOUND");
-                }))
+                .map(s -> roleRepository.findByTitle(s).orElseThrow(RuntimeException::new))
                 .collect(Collectors.toSet());
         return new AuthInfo(username, authorities);
 

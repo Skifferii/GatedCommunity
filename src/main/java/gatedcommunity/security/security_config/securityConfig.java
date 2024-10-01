@@ -18,33 +18,35 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
-
 public class securityConfig {
+
+    private final TokenFilter tokenFilter;
 
     public securityConfig(TokenFilter tokenFilter) {
         this.tokenFilter = tokenFilter;
     }
-
-    private final TokenFilter tokenFilter;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http
                 .csrf(AbstractHttpConfigurer::disable)
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)) // настройка сессий
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // настройка сессий
                 .httpBasic(AbstractHttpConfigurer::disable) // отключаем базовую аутентификацию
                 .addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class)
                 .authorizeHttpRequests(auth -> auth
-                                .anyRequest().permitAll()
-//                                .requestMatchers(HttpMethod.GET, "/hello").permitAll()
-//                                .requestMatchers(HttpMethod.POST, "/auth/login", "/auth/refresh").permitAll()
-//                                .requestMatchers("/swagger-ui/**", "/v3/api-docs").permitAll()
-//                                .requestMatchers(HttpMethod.GET, "/products").permitAll() // разрешено всем
-//                                .requestMatchers(HttpMethod.GET, "/products/{id}").authenticated() //  только для аутентифицированных пользователей
-////                        .requestMatchers(HttpMethod.GET, "/products/{id}").hasAnyRole("ADMIN", "USER") //  только для пользователей с ролью USER или ADMIN
-//                                .requestMatchers(HttpMethod.POST, "/products").hasRole("ADMIN")
-//                                .anyRequest().authenticated()
+
+//                                .anyRequest().permitAll()
+                                .requestMatchers(HttpMethod.GET, "/hello").permitAll()
+                                .requestMatchers(HttpMethod.POST, "/auth/login", "/auth/refresh").permitAll()
+                                .requestMatchers("/swagger-ui/**", "/v3/api-docs").permitAll()
+                                .requestMatchers(HttpMethod.GET, "/offered-services/{id}").authenticated() //  только для аутентифицированных пользователей
+                                .requestMatchers(HttpMethod.POST, "/offered-services").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.PUT, "/offered-services/update/{id}").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.DELETE, "/offered-services/{id}").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.PUT, "/offered-services/restore/{id}").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.PUT, "/offered-services/remove/{id}").hasRole("ADMIN")
+                                .anyRequest().authenticated()
                 );
 
         return http.build();
