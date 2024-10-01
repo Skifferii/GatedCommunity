@@ -52,12 +52,12 @@ public class UserRequestController {
         return userRequestService.deleteUserRequestById(id);
     }
 
-    @PatchMapping("/restore/{id}")
+    @PutMapping("/restore/{id}")
     public UserRequestDTO restoreUserRequestById(@PathVariable("id") Long id) {
         return userRequestService.restoreUserRequestById(id);
     }
 
-    @DeleteMapping("/remove/{id}")
+    @PutMapping("/remove/{id}")
     public UserRequestDTO removeUserRequestById(@PathVariable("id") Long id) {
         return userRequestService.removeUserRequestById(id);
     }
