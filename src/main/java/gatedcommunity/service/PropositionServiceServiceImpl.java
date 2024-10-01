@@ -1,10 +1,8 @@
 package gatedcommunity.service;
 
-import gatedcommunity.exception_handling.exceptions.FirstTestException;
 import gatedcommunity.exception_handling.exceptions.TextException;
 import gatedcommunity.model.dto.PropositionServiceDTO;
 import gatedcommunity.model.entity.PropositionService;
-import gatedcommunity.model.entity.UserRequest;
 import gatedcommunity.repository.PropositionServiceRepository;
 import gatedcommunity.service.interfaces.PropositionServiceService;
 import gatedcommunity.service.mapping.PropositionServiceMappingService;
@@ -82,18 +80,6 @@ public class PropositionServiceServiceImpl implements PropositionServiceService 
 
         return mapper.mapEntityToDto(repository.save(propositionService));
     }
-
-//    @Override
-//    public PropositionServiceDTO updatePropositionService(Long id, PropositionServiceDTO propositionServiceDTO) {
-//        PropositionService propositionService = repository.findById(id).orElse(null);
-//        mapper.mapDtoToEntity(propositionServiceDTO);
-//        propositionService.setTitle(propositionServiceDTO.getTitle());
-//        propositionService.setDescription(propositionServiceDTO.getDescription());
-//        propositionService.setImage(propositionServiceDTO.getImage());
-//        propositionService.setActive(true);
-//
-//        return mapper.mapEntityToDto(repository.save(propositionService));
-//    }
 
     @Override
     public PropositionServiceDTO deletePropositionServiceById(Long id) {
