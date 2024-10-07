@@ -3,6 +3,7 @@ package gatedcommunity.model.entity;
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.Collection;
 import java.util.Objects;
@@ -181,6 +182,6 @@ public class User implements UserDetails {
     }
 
 //        public static void main(String[] args) {
-//        System.out.println(new BCryptPasswordEncoder().encode("123"));
+//        System.out.println(new BCryptPasswordEncoder().encode("111"));
 //    }
 }

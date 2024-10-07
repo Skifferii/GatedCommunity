@@ -1,4 +1,8 @@
 package gatedcommunity.model.dto;
 
-public record UserRegisterDTO(String username, String password, String email) {
+public record UserRegisterDTO(String userName,
+                              String password,
+                              String email,
+                              String firstName,
+                              String lastName) {
 }
