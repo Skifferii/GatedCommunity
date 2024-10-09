@@ -2,8 +2,8 @@ spring:
   application:
     name: GatedCommunity
   datasource:
-    url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}
-    username: ${DB_USERNAME}
+    url: jdbc:postgresql://${DB_HOST}/gatedcommunity
+    username: ${DB_USER}
     password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
@@ -48,5 +48,5 @@ logging:
 
 
 messages:
-  hello: hello from Digital Ocean!
+  hello: hello from Local!
     
