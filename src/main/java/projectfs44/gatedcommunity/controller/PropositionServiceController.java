@@ -22,7 +22,6 @@ public class PropositionServiceController {
         this.propositionServiceService = propositionServiceService;
     }
 
-
     public void attachImage(String imageUrl, String PropositionServiceTitle) {
 
     }
