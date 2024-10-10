@@ -20,12 +20,14 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+
 import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
 
     private final UserRepository repository;
+
     private final BCryptPasswordEncoder passwordEncoder;
     private final RoleService roleService;
     private final EmailService emailService;
@@ -113,6 +115,7 @@ public class UserServiceImpl implements UserService {
     public UserDTO getUserById(long id) {
         return repository.findById(id)
                 .map(mapper::mapEntityToDTO)
+
                 .orElseThrow(() -> new RuntimeException("The user with the ID was not found: " + id));
     }
 
@@ -121,16 +124,19 @@ public class UserServiceImpl implements UserService {
         return repository.findUserByUserName(name)
                 .map(mapper::mapEntityToDTO)
                 .orElseThrow(() -> new RuntimeException("User not found: " + name));
+
     }
 
     @Override
     public UserDTO updateUser(Long id, UserDTO userDTO) {
+
         User user = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found: " + id));
 
         mapper.mapDTOToEntityUpdate(userDTO, user);
         user.setActive(true);
         return mapper.mapEntityToDTO(repository.save(user));
+
     }
 
     @Override
@@ -159,3 +165,4 @@ public class UserServiceImpl implements UserService {
 
     }
 }
+
