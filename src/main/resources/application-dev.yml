@@ -2,8 +2,8 @@ spring:
   application:
     name: GatedCommunity
   datasource:
-    url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_NAME}
-    username: ${DB_USERNAME}
+    url: jdbc:postgresql://${DB_HOST}/gatedcommunity
+    username: ${DB_USER}
     password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
@@ -15,6 +15,21 @@ spring:
       hibernate:
         auto_quote_keyword: true
 
+  mail:
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    host: smtp.gmail.com
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          ssl:
+            protocol: TLSv1.2
+            trust: smtp.gmail.com
+          debug: true
 
 #Эта настройка добавляет ко всем энпоэнтам /api
 server:
@@ -33,5 +48,5 @@ logging:
 
 
 messages:
-  hello: hello from Digital Ocean!
+  hello: hello from Local!
     
