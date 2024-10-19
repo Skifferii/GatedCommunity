@@ -1,14 +1,8 @@
 package projectfs44.gatedcommunity.service.interfaces;
 
-<<<<<<< HEAD:src/main/java/gatedcommunity/service/interfaces/UserService.java
-import gatedcommunity.model.dto.UserDTO;
-import gatedcommunity.model.dto.UserRegisterDTO;
-import gatedcommunity.model.entity.User;
-import org.springframework.security.core.userdetails.UserDetails;
-=======
+
 import projectfs44.gatedcommunity.model.dto.UserDTO;
 import projectfs44.gatedcommunity.model.dto.UserRegisterDTO;
->>>>>>> origin/dev:src/main/java/projectfs44/gatedcommunity/service/interfaces/UserService.java
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
@@ -22,6 +16,7 @@ public interface UserService  {
     String confirmationMailByCode(String code);
 
 
+
     UserDTO saveUser(UserDTO userDTO);
     List<UserDTO> getAllUsers();
     UserDTO getUserById(long id);
@@ -30,5 +25,7 @@ public interface UserService  {
     UserDTO deleteUserById(Long id);
     UserDTO restoreUserById(Long id);
     UserDTO removeUserById(Long id);
+    UserDTO addUserAddress(Long Id, Long addressId);
+    UserDTO removeUserAddress(Long userId, Long addressId);
+}
 
- }

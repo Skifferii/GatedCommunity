@@ -71,7 +71,7 @@ public class securityConfig {
                                 .requestMatchers(HttpMethod.PUT, "/addresses/{id}").hasRole("ADMIN")
                                 .requestMatchers(HttpMethod.GET,"/addresses").authenticated()
                                 .requestMatchers(HttpMethod.DELETE,"/addresses/{id}").hasRole("ADMIN")
-                                .requestMatchers(HttpMethod.POST, "/users").hasRole("ADMIN")//TODO СПРОСИТЬ!!!!!!!!!!!!
+                                .requestMatchers(HttpMethod.POST, "/users").hasRole("ADMIN")
                                 .requestMatchers(HttpMethod.GET,"/users/{id}").authenticated()
                                 .requestMatchers(HttpMethod.GET,"/users").authenticated()
                                 .requestMatchers(HttpMethod.GET, "users/results").authenticated()
