@@ -1,5 +1,6 @@
 package projectfs44.gatedcommunity.service.interfaces;
 
+
 import projectfs44.gatedcommunity.model.dto.UserDTO;
 import projectfs44.gatedcommunity.model.dto.UserRegisterDTO;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -27,3 +28,4 @@ public interface UserService  {
     UserDTO addUserAddress(Long Id, Long addressId);
     UserDTO removeUserAddress(Long userId, Long addressId);
 }
+
