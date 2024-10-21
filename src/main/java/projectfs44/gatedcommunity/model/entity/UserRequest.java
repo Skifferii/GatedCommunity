@@ -4,7 +4,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 
-import java.util.Date;
+
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
@@ -18,8 +19,8 @@ public class UserRequest {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "photo")
-    private String photo;
+    @Column(name = "picture")
+    private String picture;
 
     @Schema(description = "user_request  proposition_service_id", example = "023")
     @Column(name = "proposition_service_id")
@@ -29,10 +30,12 @@ public class UserRequest {
     @Column(name = "description")
     private String description;
 
-    @Schema(description = "user_request timestamp", example = "12/12/2028")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm")
+
+    @Schema(description = "user_request timestamp", example = "2028-12-12T18:05:45")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
     @Column(name = "desired_datetime")
-    private Date desiredDateTime;
+    private LocalDateTime desiredDateTime;
+
 
     @Schema(description = "user_request  user_id", example = "013")
     @Column(name = "user_id")
@@ -53,40 +56,7 @@ public class UserRequest {
     @Override
     public String toString() {
         return String.format("User_request: id - %d, description - %s, proposition_service_id - %s, desired_datetime - %s, user_id - %s, address_id - %s,  active - %s",
-                id, description, propositionServiceId, desiredDateTime, userId, addressId,   active ? "yes" : "no");
-    }
-
-    public UserRequest(Long id, String photo, long proposition_service_id, String description, Date desired_datetime, long user_id, long address_id, boolean active) {
-        this.id = id;
-        this.photo = photo;
-        this.propositionServiceId = proposition_service_id;
-        this.description = description;
-        this.desiredDateTime = desired_datetime;
-        this.userId = user_id;
-        this.addressId = address_id;
-        this.active = active;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        UserRequest that = (UserRequest) o;
-        return propositionServiceId == that.propositionServiceId && userId == that.userId && addressId == that.addressId && active == that.active && Objects.equals(id, that.id) && Objects.equals(photo, that.photo) && Objects.equals(description, that.description) && Objects.equals(desiredDateTime, that.desiredDateTime);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = Objects.hashCode(id);
-        result = 31 * result + Objects.hashCode(photo);
-        result = 31 * result + Long.hashCode(propositionServiceId);
-        result = 31 * result + Objects.hashCode(description);
-        result = 31 * result + Objects.hashCode(desiredDateTime);
-        result = 31 * result + Long.hashCode(userId);
-        result = 31 * result + Long.hashCode(addressId);
-        result = 31 * result + Boolean.hashCode(active);
-        return result;
+                id, description, propositionServiceId, desiredDateTime, userId, addressId, active ? "yes" : "no");
     }
 
     public Long getId() {
@@ -97,12 +67,12 @@ public class UserRequest {
         this.id = id;
     }
 
-    public String getPhoto() {
-        return photo;
+    public String getPicture() {
+        return picture;
     }
 
-    public void setPhoto(String photo) {
-        this.photo = photo;
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
     public long getPropositionServiceId() {
@@ -121,11 +91,11 @@ public class UserRequest {
         this.description = description;
     }
 
-    public Date getDesiredDateTime() {
+    public LocalDateTime getDesiredDateTime() {
         return desiredDateTime;
     }
 
-    public void setDesiredDateTime(Date desiredDateTime) {
+    public void setDesiredDateTime(LocalDateTime desiredDateTime) {
         this.desiredDateTime = desiredDateTime;
     }
 
@@ -152,4 +122,39 @@ public class UserRequest {
     public void setActive(boolean active) {
         this.active = active;
     }
+
+    public UserRequest(Long id, String picture, long propositionServiceId, String description, LocalDateTime desiredDateTime, long userId, long addressId, boolean active) {
+        this.id = id;
+        this.picture = picture;
+        this.propositionServiceId = propositionServiceId;
+        this.description = description;
+        this.desiredDateTime = desiredDateTime;
+        this.userId = userId;
+        this.addressId = addressId;
+        this.active = active;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        UserRequest that = (UserRequest) o;
+        return propositionServiceId == that.propositionServiceId && userId == that.userId && addressId == that.addressId && active == that.active && Objects.equals(id, that.id) && Objects.equals(picture, that.picture) && Objects.equals(description, that.description) && Objects.equals(desiredDateTime, that.desiredDateTime);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hashCode(id);
+        result = 31 * result + Objects.hashCode(picture);
+        result = 31 * result + Long.hashCode(propositionServiceId);
+        result = 31 * result + Objects.hashCode(description);
+        result = 31 * result + Objects.hashCode(desiredDateTime);
+        result = 31 * result + Long.hashCode(userId);
+        result = 31 * result + Long.hashCode(addressId);
+        result = 31 * result + Boolean.hashCode(active);
+        return result;
+    }
+
+
 }
