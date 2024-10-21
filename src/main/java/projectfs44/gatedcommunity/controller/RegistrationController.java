@@ -17,6 +17,7 @@ public class RegistrationController {
         this.userService = userService;
     }
 
+
     @PostMapping
     public Response registerUser(@RequestBody UserRegisterDTO dto) {
         System.out.println(dto.toString());
