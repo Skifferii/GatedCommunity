@@ -7,8 +7,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import projectfs44.gatedcommunity.model.dto.UserDTO;
 import projectfs44.gatedcommunity.model.dto.UserRegisterDTO;
+import projectfs44.gatedcommunity.model.entity.Address;
 import projectfs44.gatedcommunity.model.entity.ConfirmationCode;
 import projectfs44.gatedcommunity.model.entity.User;
+import projectfs44.gatedcommunity.repository.AddressRepository;
 import projectfs44.gatedcommunity.repository.UserRepository;
 import projectfs44.gatedcommunity.service.interfaces.ConfirmationCodeService;
 import projectfs44.gatedcommunity.service.interfaces.EmailService;
@@ -26,15 +28,16 @@ import java.util.stream.Collectors;
 @Service
 public class UserServiceImpl implements UserService {
 
+    private final AddressRepository addressRepository;
     private final UserRepository repository;
-
     private final BCryptPasswordEncoder passwordEncoder;
     private final RoleService roleService;
     private final EmailService emailService;
     private final UserMappingService mapper;
     private final ConfirmationCodeService confirmationCodeService;
 
-    public UserServiceImpl(UserRepository repository, BCryptPasswordEncoder passwordEncoder, RoleService roleService, EmailService emailService, UserMappingService mapper, ConfirmationCodeService confirmationCodeService) {
+    public UserServiceImpl(AddressRepository addressRepository, UserRepository repository, BCryptPasswordEncoder passwordEncoder, RoleService roleService, EmailService emailService, UserMappingService mapper, ConfirmationCodeService confirmationCodeService) {
+        this.addressRepository = addressRepository;
         this.repository = repository;
         this.passwordEncoder = passwordEncoder;
         this.roleService = roleService;
@@ -46,9 +49,31 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
+    public UserDTO addUserAddress(Long Id, Long addressId) {
+       User user = repository.findById(Id) // Найти пользователя по userId
+                .orElseThrow(() -> new RuntimeException("User not found: " + Id));
+        Address address = addressRepository.findById(addressId)// Найти адрес по addressId
+                .orElseThrow(() -> new RuntimeException("Address not found: " + addressId));
+        user.getAddresses().add(address);// Добавляем адрес пользователю
+       // repository.save(user);   // Сохранить пользователя с обновленным списком адресов
+        return mapper.mapEntityToDTO(repository.save(user));
+        //return null;
+    }
+    @Transactional
+    @Override
+    public UserDTO removeUserAddress(Long userId, Long addressId) {
+        User user = repository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found: " + userId));
+        Address address = addressRepository.findById(addressId)
+                .orElseThrow(() -> new RuntimeException("Address not found: " + addressId));
+        user.getAddresses().remove(address);
+        return mapper.mapEntityToDTO(repository.save(user));
+    }
+
+    @Transactional
+    @Override
     public void register(UserRegisterDTO registerDTO) {
         User user = mapper.mapRegisterDTOToEntity(registerDTO);
-
         Optional<User> optionalUser = repository.findByEmail(user.getEmail());
         if (optionalUser.isPresent() && optionalUser.get().isActive()) {
             throw new RuntimeException("Email " + user.getEmail() + " is already in use");
@@ -165,4 +190,3 @@ public class UserServiceImpl implements UserService {
 
     }
 }
-

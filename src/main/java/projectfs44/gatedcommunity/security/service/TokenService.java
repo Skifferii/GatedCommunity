@@ -1,8 +1,15 @@
 package projectfs44.gatedcommunity.security.service;
 
+<<<<<<< HEAD:src/main/java/gatedcommunity/security/service/TokenService.java
+import gatedcommunity.model.entity.Role;
+import gatedcommunity.model.entity.User;
+import gatedcommunity.repository.RoleRepository;
+import gatedcommunity.security.AuthInfo;
+=======
 import projectfs44.gatedcommunity.model.entity.Role;
 import projectfs44.gatedcommunity.repository.RoleRepository;
 import projectfs44.gatedcommunity.security.AuthInfo;
+>>>>>>> origin/dev:src/main/java/projectfs44/gatedcommunity/security/service/TokenService.java
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
@@ -32,9 +39,13 @@ public class TokenService {
     }
 
     public String generateAccessToken(UserDetails user) {
-        Instant now = Instant.now();
-        Instant expiration = now.plus(1, ChronoUnit.DAYS);
-        Date expriationDate = Date.from(expiration);
+        // machen ende Zeit Token
+        Instant now = Instant.now(); /// ZEIT JETZT
+        Instant expiration = now.plus(1, ChronoUnit.DAYS); // Plus 1 Tag
+
+        Date expriationDate = Date.from(expiration);  // convert Instant -> date
+
+
         return Jwts.builder()
                 .subject(user.getUsername())
                 .expiration(expriationDate)
@@ -45,9 +56,13 @@ public class TokenService {
     }
 
     public String generateRefreshToken(UserDetails user) {
-        Instant now = Instant.now();
-        Instant expiration = now.plus(10, ChronoUnit.DAYS);
-        Date expriationDate = Date.from(expiration);
+        // machen ende Zeit Token
+        Instant now = Instant.now(); /// ZEIT JETZT
+        Instant expiration = now.plus(10, ChronoUnit.DAYS); // Plus 1 Tag
+
+        Date expriationDate = Date.from(expiration);  // convert Instant -> date
+
+
         return Jwts.builder()
                 .subject(user.getUsername())
                 .expiration(expriationDate)
@@ -56,7 +71,7 @@ public class TokenService {
     }
 
 
-    public boolean validateAccessToken(String accessToken) {
+    public boolean validateAccesToken(String accessToken) {
         return validateToken(accessToken, accessKey);
     }
 
@@ -99,11 +114,14 @@ public class TokenService {
         String username = claims.getSubject();
 
         @SuppressWarnings("unchecked")
-        List <Map<String, String>> roles = (List<Map<String, String>>) claims.get("roles", List.class);
+        List <Map<String, String>> roles = (List <Map<String, String>>)claims.get("roles", List.class);
 
         Set<Role> authorities = roles.stream()
                 .map(m ->m.get("authority"))
-                .map(s -> roleRepository.findByTitle(s).orElseThrow(RuntimeException::new))
+                .map(s -> roleRepository.findByTitle(s).orElseThrow( ()->{
+                    System.err.println("ROLE NOT FOUND " +s);
+                    return new RuntimeException("ROLE NOT FOUND");
+                }))
                 .collect(Collectors.toSet());
         return new AuthInfo(username, authorities);
 
