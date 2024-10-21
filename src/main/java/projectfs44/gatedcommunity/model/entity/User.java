@@ -7,6 +7,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -117,7 +118,7 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return roles;
+        return List.of();
     }
 
     @Override
@@ -127,7 +128,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return userName;
+        return "";
     }
 
     public void setPassword(String password) {
@@ -181,8 +182,11 @@ public class User implements UserDetails {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+<<<<<<< HEAD:src/main/java/gatedcommunity/model/entity/User.java
+=======
 
 //        public static void main(String[] args) {
 //        System.out.println(new BCryptPasswordEncoder().encode("111"));
 //    }
+>>>>>>> origin/dev:src/main/java/projectfs44/gatedcommunity/model/entity/User.java
 }

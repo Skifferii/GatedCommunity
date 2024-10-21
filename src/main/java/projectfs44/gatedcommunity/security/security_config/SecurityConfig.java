@@ -22,6 +22,7 @@ public class SecurityConfig {
 
     private final TokenFilter tokenFilter;
 
+
     public SecurityConfig(TokenFilter tokenFilter) {
         this.tokenFilter = tokenFilter;
     }
@@ -31,10 +32,14 @@ public class SecurityConfig {
 
         http
                 .csrf(AbstractHttpConfigurer::disable)
+
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // настройка сессий
+
                 .httpBasic(AbstractHttpConfigurer::disable) // отключаем базовую аутентификацию
                 .addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class)
                 .authorizeHttpRequests(auth -> auth
+
+
 
 //                                .anyRequest().permitAll()
                                 .requestMatchers(HttpMethod.GET, "/hello").permitAll()
@@ -55,7 +60,9 @@ public class SecurityConfig {
                                 .requestMatchers(HttpMethod.PUT, "/addresses/{id}").hasRole("ADMIN")
                                 .requestMatchers(HttpMethod.GET,"/addresses").authenticated()
                                 .requestMatchers(HttpMethod.DELETE,"/addresses/{id}").hasRole("ADMIN")
+
                                 .requestMatchers(HttpMethod.POST, "/users").hasRole("ADMIN")//TODO СПРОСИТЬ!!!!!!!!!!!!
+
                                 .requestMatchers(HttpMethod.GET,"/users/{id}").authenticated()
                                 .requestMatchers(HttpMethod.GET,"/users").authenticated()
                                 .requestMatchers(HttpMethod.GET, "users/results").authenticated()
@@ -70,8 +77,10 @@ public class SecurityConfig {
                                 .requestMatchers(HttpMethod.DELETE,"/user-requests/{id}").hasRole("ADMIN")
                                 .requestMatchers(HttpMethod.PUT,"/user-requests/restore/{id}").hasRole("ADMIN")
                                 .requestMatchers(HttpMethod.PUT,"/user-requests/remove/{id}").hasRole("ADMIN")
+
                                 .anyRequest().authenticated()
                 );
+
 
         return http.build();
     }
@@ -83,6 +92,8 @@ public class SecurityConfig {
     }
 
 }
+
+
 /*
 Уровни доступа!
 1. Получение всех продуктов - доступно всем пользователям, включая анонимных (аутентификация не требуется)

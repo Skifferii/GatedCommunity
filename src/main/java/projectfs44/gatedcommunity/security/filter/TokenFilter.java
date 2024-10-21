@@ -22,32 +22,33 @@ public class TokenFilter extends GenericFilterBean {
         this.tokenService = tokenService;
     }
 
+    /*
+    1, Izvlech token
+    2, validation token
+    3, authoris user (+ to security context)
+    , verlange filter
+     */
 
+    // Authrization: Bearer <token>
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
-        String token = getTokenFromRequest(httpServletRequest);
+        String token = getTokenFromRequest (httpServletRequest);
 
-        try {
-            if (token != null && tokenService.validateAccessToken(token)) {
-                Claims claims = tokenService.getAccessClaims(token);
-                AuthInfo authInfo = tokenService.mapClaimsToAuthInfo(claims);
+        if (token != null && tokenService.validateAccesToken(token)) {
+            Claims claims = tokenService.getAccessClaims(token);
+            AuthInfo authInfo = tokenService.mapClaimsToAuthInfo(claims);
 
-                authInfo.setAuthenticated(true);
-                SecurityContextHolder.getContext().setAuthentication(authInfo);
+            authInfo.setAuthenticated(true);
 
-                System.out.println("Authentication successful for token: " + token);
-            } else {
-                System.out.println("Authentication failed: Invalid or missing token");
-            }
-        } catch (Exception e) {
-            System.out.println("Error during token validation: " + e.getMessage());
+            SecurityContextHolder.getContext().setAuthentication(authInfo);
+
+
         }
-
         filterChain.doFilter(servletRequest, servletResponse);
     }
-
 
     private String getTokenFromRequest(HttpServletRequest httpServletRequest) {
         String bearerToken = httpServletRequest.getHeader("Authorization");
@@ -55,6 +56,7 @@ public class TokenFilter extends GenericFilterBean {
         if (bearerToken != null && bearerToken.startsWith("Bearer ")) {
             return bearerToken.substring(7);
         }
+        //else leare oder keine Bearer
         return null;
     }
 }
