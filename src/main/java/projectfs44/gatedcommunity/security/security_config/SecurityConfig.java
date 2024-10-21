@@ -18,18 +18,13 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
-<<<<<<< HEAD:src/main/java/gatedcommunity/security/security_config/securityConfig.java
-=======
+
 public class SecurityConfig {
->>>>>>> origin/dev:src/main/java/projectfs44/gatedcommunity/security/security_config/SecurityConfig.java
 
-public class securityConfig {
-
+    private final TokenFilter tokenFilter;
     public SecurityConfig(TokenFilter tokenFilter) {
         this.tokenFilter = tokenFilter;
     }
-
-    private final TokenFilter tokenFilter;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -40,7 +35,7 @@ public class securityConfig {
                 .httpBasic(AbstractHttpConfigurer::disable) // отключаем базовую аутентификацию
                 .addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class)
                 .authorizeHttpRequests(auth -> auth
-<<<<<<< HEAD:src/main/java/gatedcommunity/security/security_config/securityConfig.java
+
                                 .anyRequest().permitAll()
 //                                .requestMatchers(HttpMethod.GET, "/hello").permitAll()
 //                                .requestMatchers(HttpMethod.POST, "/auth/login", "/auth/refresh").permitAll()
@@ -50,7 +45,7 @@ public class securityConfig {
 ////                        .requestMatchers(HttpMethod.GET, "/products/{id}").hasAnyRole("ADMIN", "USER") //  только для пользователей с ролью USER или ADMIN
 //                                .requestMatchers(HttpMethod.POST, "/products").hasRole("ADMIN")
 //                                .anyRequest().authenticated()
-=======
+
 
 //                                .anyRequest().permitAll()
                                 .requestMatchers(HttpMethod.GET, "/hello").permitAll()
@@ -86,9 +81,8 @@ public class securityConfig {
                                 .requestMatchers(HttpMethod.DELETE,"/user-requests/{id}").hasRole("ADMIN")
                                 .requestMatchers(HttpMethod.PUT,"/user-requests/restore/{id}").hasRole("ADMIN")
                                 .requestMatchers(HttpMethod.PUT,"/user-requests/remove/{id}").hasRole("ADMIN")
-                                .anyRequest().authenticated()
->>>>>>> origin/dev:src/main/java/projectfs44/gatedcommunity/security/security_config/SecurityConfig.java
-                );
+                                .anyRequest().authenticated());
+
 
         return http.build();
     }
