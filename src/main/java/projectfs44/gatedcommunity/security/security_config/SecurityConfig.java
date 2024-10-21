@@ -18,10 +18,11 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
-
 public class SecurityConfig {
 
     private final TokenFilter tokenFilter;
+
+
     public SecurityConfig(TokenFilter tokenFilter) {
         this.tokenFilter = tokenFilter;
     }
@@ -31,20 +32,13 @@ public class SecurityConfig {
 
         http
                 .csrf(AbstractHttpConfigurer::disable)
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)) // настройка сессий
+
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // настройка сессий
+
                 .httpBasic(AbstractHttpConfigurer::disable) // отключаем базовую аутентификацию
                 .addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class)
                 .authorizeHttpRequests(auth -> auth
 
-                                .anyRequest().permitAll()
-//                                .requestMatchers(HttpMethod.GET, "/hello").permitAll()
-//                                .requestMatchers(HttpMethod.POST, "/auth/login", "/auth/refresh").permitAll()
-//                                .requestMatchers("/swagger-ui/**", "/v3/api-docs").permitAll()
-//                                .requestMatchers(HttpMethod.GET, "/products").permitAll() // разрешено всем
-//                                .requestMatchers(HttpMethod.GET, "/products/{id}").authenticated() //  только для аутентифицированных пользователей
-////                        .requestMatchers(HttpMethod.GET, "/products/{id}").hasAnyRole("ADMIN", "USER") //  только для пользователей с ролью USER или ADMIN
-//                                .requestMatchers(HttpMethod.POST, "/products").hasRole("ADMIN")
-//                                .anyRequest().authenticated()
 
 
 //                                .anyRequest().permitAll()
@@ -66,7 +60,9 @@ public class SecurityConfig {
                                 .requestMatchers(HttpMethod.PUT, "/addresses/{id}").hasRole("ADMIN")
                                 .requestMatchers(HttpMethod.GET,"/addresses").authenticated()
                                 .requestMatchers(HttpMethod.DELETE,"/addresses/{id}").hasRole("ADMIN")
-                                .requestMatchers(HttpMethod.POST, "/users").hasRole("ADMIN")
+
+                                .requestMatchers(HttpMethod.POST, "/users").hasRole("ADMIN")//TODO СПРОСИТЬ!!!!!!!!!!!!
+
                                 .requestMatchers(HttpMethod.GET,"/users/{id}").authenticated()
                                 .requestMatchers(HttpMethod.GET,"/users").authenticated()
                                 .requestMatchers(HttpMethod.GET, "users/results").authenticated()
@@ -81,7 +77,9 @@ public class SecurityConfig {
                                 .requestMatchers(HttpMethod.DELETE,"/user-requests/{id}").hasRole("ADMIN")
                                 .requestMatchers(HttpMethod.PUT,"/user-requests/restore/{id}").hasRole("ADMIN")
                                 .requestMatchers(HttpMethod.PUT,"/user-requests/remove/{id}").hasRole("ADMIN")
-                                .anyRequest().authenticated());
+
+                                .anyRequest().authenticated()
+                );
 
 
         return http.build();
@@ -94,6 +92,7 @@ public class SecurityConfig {
     }
 
 }
+
 
 /*
 Уровни доступа!
