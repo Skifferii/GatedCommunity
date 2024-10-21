@@ -1,6 +1,6 @@
 package projectfs44.gatedcommunity.controller;
 
-<<<<<<< HEAD:src/main/java/gatedcommunity/controller/RegistrationController.java
+nch<<<<<<< HEAD:src/main/java/gatedcommunity/controller/RegistrationController.java
 =======
 import projectfs44.gatedcommunity.exception_handling.Response;
 import projectfs44.gatedcommunity.model.dto.UserRegisterDTO;
