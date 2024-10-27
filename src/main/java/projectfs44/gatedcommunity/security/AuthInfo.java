@@ -20,7 +20,7 @@ public class AuthInfo implements Authentication {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return (Collection<? extends GrantedAuthority>) roles;
+        return roles;
     }
 
     @Override

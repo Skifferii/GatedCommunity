@@ -18,39 +18,23 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
-<<<<<<< HEAD:src/main/java/gatedcommunity/security/security_config/securityConfig.java
-=======
 public class SecurityConfig {
->>>>>>> origin/dev:src/main/java/projectfs44/gatedcommunity/security/security_config/SecurityConfig.java
 
-public class securityConfig {
+    private final TokenFilter tokenFilter;
 
     public SecurityConfig(TokenFilter tokenFilter) {
         this.tokenFilter = tokenFilter;
     }
-
-    private final TokenFilter tokenFilter;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http
                 .csrf(AbstractHttpConfigurer::disable)
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)) // настройка сессий
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // настройка сессий
                 .httpBasic(AbstractHttpConfigurer::disable) // отключаем базовую аутентификацию
                 .addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class)
                 .authorizeHttpRequests(auth -> auth
-<<<<<<< HEAD:src/main/java/gatedcommunity/security/security_config/securityConfig.java
-                                .anyRequest().permitAll()
-//                                .requestMatchers(HttpMethod.GET, "/hello").permitAll()
-//                                .requestMatchers(HttpMethod.POST, "/auth/login", "/auth/refresh").permitAll()
-//                                .requestMatchers("/swagger-ui/**", "/v3/api-docs").permitAll()
-//                                .requestMatchers(HttpMethod.GET, "/products").permitAll() // разрешено всем
-//                                .requestMatchers(HttpMethod.GET, "/products/{id}").authenticated() //  только для аутентифицированных пользователей
-////                        .requestMatchers(HttpMethod.GET, "/products/{id}").hasAnyRole("ADMIN", "USER") //  только для пользователей с ролью USER или ADMIN
-//                                .requestMatchers(HttpMethod.POST, "/products").hasRole("ADMIN")
-//                                .anyRequest().authenticated()
-=======
 
 //                                .anyRequest().permitAll()
                                 .requestMatchers(HttpMethod.GET, "/hello").permitAll()
@@ -87,7 +71,6 @@ public class securityConfig {
                                 .requestMatchers(HttpMethod.PUT,"/user-requests/restore/{id}").hasRole("ADMIN")
                                 .requestMatchers(HttpMethod.PUT,"/user-requests/remove/{id}").hasRole("ADMIN")
                                 .anyRequest().authenticated()
->>>>>>> origin/dev:src/main/java/projectfs44/gatedcommunity/security/security_config/SecurityConfig.java
                 );
 
         return http.build();
@@ -100,10 +83,3 @@ public class securityConfig {
     }
 
 }
-
-/*
-Уровни доступа!
-1. Получение всех продуктов - доступно всем пользователям, включая анонимных (аутентификация не требуется)
-2. Получение продукта по id - доступно только аутентифицированным пользователям с любой ролью
-3. Сохранение нового продукта - доступно только администраторам. (аутентифицирован + имеет роль ADMIN)
- */
