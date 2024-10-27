@@ -74,6 +74,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void register(UserRegisterDTO registerDTO) {
         User user = mapper.mapRegisterDTOToEntity(registerDTO);
+
         Optional<User> optionalUser = repository.findByEmail(user.getEmail());
         if (optionalUser.isPresent() && optionalUser.get().isActive()) {
             throw new RuntimeException("Email " + user.getEmail() + " is already in use");
