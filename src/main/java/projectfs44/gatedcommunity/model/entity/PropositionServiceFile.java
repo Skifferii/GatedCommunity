@@ -17,7 +17,6 @@ public class PropositionServiceFile {
     @Column(name = "file_data", nullable = false)
     private byte[] fileData;
 
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "proposition_service_id", nullable = false)
     private PropositionService propositionService;

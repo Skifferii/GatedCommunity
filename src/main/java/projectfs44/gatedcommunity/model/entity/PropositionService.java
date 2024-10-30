@@ -5,10 +5,9 @@ import jakarta.persistence.*;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
-@Table(name ="proposition_service")
+@Table(name = "proposition_service")
 @Schema(description = "Class that describes proposition_service")
 
 public class PropositionService {
@@ -35,19 +34,18 @@ public class PropositionService {
     private boolean active; // null / false
 
     @OneToMany(mappedBy = "propositionService", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<PropositionServiceFile> files;
+    private List<PropositionServiceFile> files;
 
     public PropositionService() {
-
     }
 
     @Override
     public String toString() {
         return String.format("PropositionService: id - %d, title - %s, description - %s, active - %s",
-                id, title, description, active ? "yes" : "no" );
+                id, title, description, active ? "yes" : "no");
     }
 
-    public PropositionService(Long id, String title, String description, String image, boolean active, Set<PropositionServiceFile> files) {
+    public PropositionService(Long id, String title, String description, String image, boolean active, List<PropositionServiceFile> files) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -96,11 +94,11 @@ public class PropositionService {
         this.active = active;
     }
 
-    public Set<PropositionServiceFile> getFiles() {
+    public List<PropositionServiceFile> getFiles() {
         return files;
     }
 
-    public void setFiles(Set<PropositionServiceFile> files) {
+    public void setFiles(List<PropositionServiceFile> files) {
         this.files = files;
     }
 

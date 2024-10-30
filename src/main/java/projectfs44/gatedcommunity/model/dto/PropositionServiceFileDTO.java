@@ -1,7 +1,7 @@
 package projectfs44.gatedcommunity.model.dto;
 
-public record  PropositionServiceFileDTO(Long id,
-                                         byte[] fileData,
-                                         Long propositionServiceId) {
+public record PropositionServiceFileDTO(Long id,
+                                        String fileData,
+                                        Long propositionServiceId) {
 
 }
